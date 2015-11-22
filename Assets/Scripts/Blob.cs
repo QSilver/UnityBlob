@@ -56,9 +56,17 @@ public class Blob : MonoBehaviour {
         if (other.tag == "Food")
         {
             Eat();
-            FoodManager.foods.Remove(other.gameObject);
             Destroy(other.gameObject);
+            FoodManager.foods.Remove(other.gameObject);
             Destroy(other);
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Blob")
+        {
+            // this.energy -= 2; // fighting
         }
     }
 
@@ -66,14 +74,6 @@ public class Blob : MonoBehaviour {
     {
         Log.PassString((this.blobID + " Clicked"));
         BlobDisplay.Load(this);
-    }
-
-    void OnCollisonEnter(Collider other)
-    {
-        if (other.tag == "Blob")
-        {
-            this.energy -= 10;
-        }
     }
 
     void Eat()
