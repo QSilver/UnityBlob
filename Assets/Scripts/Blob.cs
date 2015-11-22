@@ -4,6 +4,7 @@ using Assets.Scripts;
 public class Blob : MonoBehaviour {
 
     private Rigidbody rb;
+    public GameObject blob;
     GameObject target;
     public float speed;
 
@@ -13,9 +14,13 @@ public class Blob : MonoBehaviour {
     float delay = BlobManager.blobspeed;
     int foundFood = 0;
 
+    public static int ID;
+    int blobID;
+
 	// Use this for initialization
 	void Start () {
-        rb = GetComponent<Rigidbody>();
+        rb = blob.GetComponent<Rigidbody>();
+        this.blobID = ID++;
 	}
 	
 	// Update is called once per frame
@@ -57,6 +62,12 @@ public class Blob : MonoBehaviour {
         }
     }
 
+    void OnMouseDown()
+    {
+        Log.PassString((this.blobID + " Clicked"));
+        BlobDisplay.Load(this);
+    }
+
     void OnCollisonEnter(Collider other)
     {
         if (other.tag == "Blob")
@@ -78,18 +89,25 @@ public class Blob : MonoBehaviour {
 
     void Reproduce()
     {
-        GameObject child1 = GameObject.Instantiate(this, this.transform.position - new Vector3(-0.5f,-0.5f), this.transform.rotation) as GameObject;
+        GameObject child1 = GameObject.Instantiate(blob, blob.transform.position - new Vector3(0f, 0f), blob.transform.rotation) as GameObject;
         BlobManager.blobs.Add(child1);
-        GameObject child2 = GameObject.Instantiate(this, this.transform.position + new Vector3(0.5f, 0.5f), this.transform.rotation) as GameObject;
+        GameObject child2 = GameObject.Instantiate(blob, blob.transform.position + new Vector3(0f, 0f), blob.transform.rotation) as GameObject;
         BlobManager.blobs.Add(child2);
 
-        Starve();
+        Log.PassString(("<" + blobID + ">" + " Reproduced"));
+
+        // duplicate to avoid logging death
+        Destroy(blob.gameObject);
+        BlobManager.blobs.Remove(blob.gameObject);
+        Destroy(blob);
     }
 
     void Starve()
     {
-        BlobManager.blobs.Remove(this.gameObject);
+        Log.PassString(("<" + blobID + ">" + " Died"));
+
         Destroy(this.gameObject);
+        BlobManager.blobs.Remove(this.gameObject);
         Destroy(this);
     }
 
@@ -132,5 +150,15 @@ public class Blob : MonoBehaviour {
             }
         }
         return store;
+    }
+
+    public float getEnergy()
+    {
+        return this.energy;
+    }
+
+    public int getID()
+    {
+        return this.blobID;
     }
 }

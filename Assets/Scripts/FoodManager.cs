@@ -8,6 +8,7 @@ namespace Assets.Scripts
         static float t = 0f;
         static int maxFood = 50;
         public static float foodSpawnRate = 5f;
+        public static int foodSpawnAmount = 1;
         public static float spawnspeed = Main.delay * foodSpawnRate;
         public static List<GameObject> foods = new List<GameObject>();
 
@@ -16,9 +17,12 @@ namespace Assets.Scripts
             t += Time.deltaTime * 1000;
             if (t > spawnspeed && foods.Count < maxFood)
             {
-                GameObject clone = GameObject.Instantiate(food, new Vector3(((float)Random.Range(-5000, 5000)) / 1000, ((float)Random.Range(-5000, 5000)) / 1000), new Quaternion(0, 0, 0, 0)) as GameObject;
-                foods.Add(clone);
-                t = 0f;
+                for (int i = 0; i <= foodSpawnAmount; i++)
+                {
+                    GameObject clone = GameObject.Instantiate(food, new Vector3(((float)Random.Range(-5000, 5000)) / 1000, ((float)Random.Range(-5000, 5000)) / 1000), new Quaternion(0, 0, 0, 0)) as GameObject;
+                    foods.Add(clone);
+                    t = 0f;
+                }
             }
         }
     }
