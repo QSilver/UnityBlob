@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using Assets.Scripts;
 
-public class Blob : MonoBehaviour {
-
+public class BlobLogic : MonoBehaviour
+{
     private Rigidbody rb;
     public GameObject blob;
     GameObject target;
@@ -15,7 +15,7 @@ public class Blob : MonoBehaviour {
     int foundFood = 0;
 
     public static int ID;
-    int blobID;
+    protected int blobID;
 
 	// Use this for initialization
 	void Start () {
@@ -90,11 +90,14 @@ public class Blob : MonoBehaviour {
     void Reproduce()
     {
         GameObject child1 = GameObject.Instantiate(blob, blob.transform.position - new Vector3(0f, 0f), blob.transform.rotation) as GameObject;
+        child1.AddComponent<BlobDNA>(); child1.GetComponent<BlobDNA>().setDNA(Main.RandomString(5));
         BlobManager.blobs.Add(child1);
+
         GameObject child2 = GameObject.Instantiate(blob, blob.transform.position + new Vector3(0f, 0f), blob.transform.rotation) as GameObject;
+        child1.AddComponent<BlobDNA>(); child2.GetComponent<BlobDNA>().setDNA(Main.RandomString(5));
         BlobManager.blobs.Add(child2);
 
-        Log.PassString(("<" + blobID + ">" + " Reproduced"));
+        Log.PassString(("<" + blob.GetComponent<BlobDNA>().getDNA() + ">" + " Reproduced " + child1.GetComponent<BlobDNA>().getDNA() + " " + child2.GetComponent<BlobDNA>().getDNA()));
 
         // duplicate to avoid logging death
         Destroy(blob.gameObject);
@@ -104,7 +107,7 @@ public class Blob : MonoBehaviour {
 
     void Starve()
     {
-        Log.PassString(("<" + blobID + ">" + " Died"));
+        Log.PassString(("<" + blob.GetComponent<BlobDNA>().getDNA() + ">" + " Died"));
 
         Destroy(this.gameObject);
         BlobManager.blobs.Remove(this.gameObject);
@@ -159,6 +162,6 @@ public class Blob : MonoBehaviour {
 
     public int getID()
     {
-        return this.blobID;
+        return blob.GetComponent<BlobLogic>().blobID;
     }
 }

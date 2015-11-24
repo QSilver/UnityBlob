@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using Assets.Scripts;
+using System.Linq;
 
-public class Main : MonoBehaviour {
-
+public class Main : MonoBehaviour
+{
     public static float timestamp = 0f;
 
     public static int gameState = 0;
@@ -11,6 +12,13 @@ public class Main : MonoBehaviour {
 
     public GameObject blob;
     public GameObject food;
+    static System.Random random = new System.Random();
+
+    public static string RandomString(int length)
+    {
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
+    }
 
     void Start()
     {
@@ -34,7 +42,7 @@ public class Main : MonoBehaviour {
         BlobManager.blobs.Clear();
         FoodManager.foods.Clear();
 
-        timestamp = 0; Blob.ID = 0; Log.Reset();
+        timestamp = 0; BlobLogic.ID = 0; Log.Reset();
 
         var toClear = GameObject.FindGameObjectsWithTag("Blob");
         for (int i = 0; i < toClear.Length; i++) Destroy(toClear[i]);
@@ -56,6 +64,8 @@ public class Main : MonoBehaviour {
                 for (int i = 1; i <= 10; i++)
                 {
                     GameObject clone = GameObject.Instantiate(blob, new Vector3(((float)Random.Range(-5000, 5000)) / 1000, ((float)Random.Range(-5000, 5000)) / 1000), new Quaternion(0, 0, 0, 0)) as GameObject;
+                    clone.AddComponent<BlobDNA>();
+                    clone.GetComponent<BlobDNA>().setDNA(RandomString(5));
                     BlobManager.blobs.Add(clone);
                 }
             }

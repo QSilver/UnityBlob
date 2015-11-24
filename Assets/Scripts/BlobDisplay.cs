@@ -1,23 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using Assets.Scripts;
 
-public class BlobDisplay : MonoBehaviour {
-
+public class BlobDisplay : MonoBehaviour
+{
     static string display;
-    static Blob b;
+    static BlobLogic b;
 
-    public static void Load(Blob ext)
+    public static void Load(BlobLogic ext)
     {
         b = ext;
     }
 
-
-	void Update () {
+	void Update ()
+    {
         if (b != null)
         {
             display = "BlobID: " + b.getID() + System.Environment.NewLine;
-            display += "Energy: " + b.getEnergy();
+            display += "Energy: " + b.getEnergy() + System.Environment.NewLine;
+            display += "DNA: " + b.GetComponent<BlobDNA>().getDNA();
         }
         else display = "";
         this.GetComponent<Text>().text = display;
