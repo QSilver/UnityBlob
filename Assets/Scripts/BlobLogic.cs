@@ -4,6 +4,9 @@ using Assets.Scripts;
 public class BlobLogic : MonoBehaviour
 {
     private Rigidbody rb;
+    private AudioSource audioSource;
+    public AudioClip drop;
+    public AudioClip chomp;
     public GameObject blob;
     GameObject target;
     public float speed;
@@ -20,7 +23,11 @@ public class BlobLogic : MonoBehaviour
 	// Use this for initialization
 	void Start () {
         rb = blob.GetComponent<Rigidbody>();
+        audioSource = blob.GetComponent<AudioSource>();
         this.blobID = ID++;
+
+        audioSource.clip = drop;
+        audioSource.Play();
 	}
 	
 	// Update is called once per frame
@@ -78,6 +85,8 @@ public class BlobLogic : MonoBehaviour
 
     void Eat()
     {
+        audioSource.clip = chomp;
+        audioSource.Play();
         this.energy += 30;
     }
 

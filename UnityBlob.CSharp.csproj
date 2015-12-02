@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\BlobDisplay.cs" />
     <Compile Include="Assets\Scripts\BlobLogic.cs" />
     <Compile Include="Assets\Scripts\BlobManager.cs" />
+    <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\FoodManager.cs" />
     <Compile Include="Assets\Scripts\FoodSpeed.cs" />
     <Compile Include="Assets\Scripts\Log.cs" />
