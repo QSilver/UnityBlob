@@ -19,7 +19,8 @@ public class BlobDisplay : MonoBehaviour
         {
             display = "BlobID: " + b.getID() + System.Environment.NewLine;
             display += "Energy: " + b.getEnergy() + System.Environment.NewLine;
-            display += "DNA: " + b.GetComponent<BlobDNA>().getDNA();
+            display += "DNA: " + b.GetComponent<BlobDNA>().getDNA() + System.Environment.NewLine;
+            display += "Range: " + b.GetComponent<BlobLogic>().getRange();
         }
         else display = "";
         this.GetComponent<Text>().text = display;

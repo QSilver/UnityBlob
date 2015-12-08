@@ -21,9 +21,13 @@ public class BlobLogic : MonoBehaviour
     protected int blobID;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         rb = blob.GetComponent<Rigidbody>();
         audioSource = blob.GetComponent<AudioSource>();
+
+        this.range = ((float)System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA(), 2));
+
         this.blobID = ID++;
 
         audioSource.clip = drop;
@@ -99,11 +103,11 @@ public class BlobLogic : MonoBehaviour
     void Reproduce()
     {
         GameObject child1 = GameObject.Instantiate(blob, blob.transform.position - new Vector3(0f, 0f), blob.transform.rotation) as GameObject;
-        child1.AddComponent<BlobDNA>(); child1.GetComponent<BlobDNA>().setDNA(Main.RandomString(5));
+        child1.AddComponent<BlobDNA>(); child1.GetComponent<BlobDNA>().setDNA(DNAOperations.mutate(blob.GetComponent<BlobDNA>().getDNA()));
         BlobManager.blobs.Add(child1);
 
         GameObject child2 = GameObject.Instantiate(blob, blob.transform.position + new Vector3(0f, 0f), blob.transform.rotation) as GameObject;
-        child1.AddComponent<BlobDNA>(); child2.GetComponent<BlobDNA>().setDNA(Main.RandomString(5));
+        child1.AddComponent<BlobDNA>(); child2.GetComponent<BlobDNA>().setDNA(DNAOperations.mutate(blob.GetComponent<BlobDNA>().getDNA()));
         BlobManager.blobs.Add(child2);
 
         Log.PassString(("<" + blob.GetComponent<BlobDNA>().getDNA() + ">" + " Reproduced " + child1.GetComponent<BlobDNA>().getDNA() + " " + child2.GetComponent<BlobDNA>().getDNA()));
@@ -172,5 +176,10 @@ public class BlobLogic : MonoBehaviour
     public int getID()
     {
         return blob.GetComponent<BlobLogic>().blobID;
+    }
+
+    public float getRange()
+    {
+        return blob.GetComponent<BlobLogic>().range;
     }
 }

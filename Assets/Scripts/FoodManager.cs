@@ -5,6 +5,8 @@ namespace Assets.Scripts
 {
     abstract class FoodManager
     {
+        static float foodSpawnSize = 10f;
+
         static float t = 0f;
         static int maxFood = 50;
         public static float foodSpawnRate = 5f;
@@ -19,7 +21,7 @@ namespace Assets.Scripts
             {
                 for (int i = 0; i <= foodSpawnAmount; i++)
                 {
-                    GameObject clone = GameObject.Instantiate(food, new Vector3(((float)Random.Range(-5000, 5000)) / 1000, ((float)Random.Range(-5000, 5000)) / 1000), new Quaternion(0, 0, 0, 0)) as GameObject;
+                    GameObject clone = GameObject.Instantiate(food, new Vector3((float)((Main.random.NextDouble() - 0.5) * foodSpawnSize), (float)((Main.random.NextDouble() - 0.5) * foodSpawnSize)), new Quaternion(0, 0, 0, 0)) as GameObject;
                     foods.Add(clone);
                     t = 0f;
                 }

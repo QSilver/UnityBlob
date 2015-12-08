@@ -12,7 +12,7 @@ public class Main : MonoBehaviour
 
     public GameObject blob;
     public GameObject food;
-    static System.Random random = new System.Random();
+    public static System.Random random = new System.Random();
 
     public static string RandomString(int length)
     {
@@ -65,7 +65,7 @@ public class Main : MonoBehaviour
                 {
                     GameObject clone = GameObject.Instantiate(blob, new Vector3(((float)Random.Range(-5000, 5000)) / 1000, ((float)Random.Range(-5000, 5000)) / 1000), new Quaternion(0, 0, 0, 0)) as GameObject;
                     clone.AddComponent<BlobDNA>();
-                    clone.GetComponent<BlobDNA>().setDNA(RandomString(5));
+                    clone.GetComponent<BlobDNA>().setDNA(DNAOperations.generate(DNAOperations.DNASIZE));
                     BlobManager.blobs.Add(clone);
                 }
             }
