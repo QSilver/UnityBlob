@@ -13,6 +13,7 @@ public class BlobLogic : MonoBehaviour
 
     float energy = 100f;
     float range = 10f;
+    float toReproduce = 200f;
     float t;
     float delay = BlobManager.blobspeed;
     int foundFood = 0;
@@ -26,7 +27,8 @@ public class BlobLogic : MonoBehaviour
         rb = blob.GetComponent<Rigidbody>();
         audioSource = blob.GetComponent<AudioSource>();
 
-        this.range = ((float)System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA(), 2));
+        this.range = ((float)System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(0,3), 2));
+        this.toReproduce = ((float)System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(3, 8), 2)) + 10;
 
         this.blobID = ID++;
 
@@ -41,6 +43,7 @@ public class BlobLogic : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
 
         this.GetComponentInChildren<SpriteRenderer>().color = new Color(this.energy/150, 0, 0, 1);
+
         if (Main.gameState == 1)
         {
             delay = BlobManager.blobspeed;
@@ -49,9 +52,9 @@ public class BlobLogic : MonoBehaviour
             {
                 DebugFind();
                 t = 0f;
-                energy -= 1;
+                energy -= 0.5f;
             }
-            if (this.energy > 200f)
+            if (this.energy > toReproduce)
             {
                 Reproduce();
             }
@@ -103,11 +106,15 @@ public class BlobLogic : MonoBehaviour
     void Reproduce()
     {
         GameObject child1 = GameObject.Instantiate(blob, blob.transform.position - new Vector3(0f, 0f), blob.transform.rotation) as GameObject;
-        child1.AddComponent<BlobDNA>(); child1.GetComponent<BlobDNA>().setDNA(DNAOperations.mutate(blob.GetComponent<BlobDNA>().getDNA()));
+        child1.AddComponent<BlobDNA>();
+        child1.GetComponent<BlobDNA>().setDNA(DNAOperations.mutate(blob.GetComponent<BlobDNA>().getDNA()));
+        child1.GetComponent<BlobLogic>().energy = this.energy / 2;
         BlobManager.blobs.Add(child1);
 
         GameObject child2 = GameObject.Instantiate(blob, blob.transform.position + new Vector3(0f, 0f), blob.transform.rotation) as GameObject;
-        child1.AddComponent<BlobDNA>(); child2.GetComponent<BlobDNA>().setDNA(DNAOperations.mutate(blob.GetComponent<BlobDNA>().getDNA()));
+        child2.AddComponent<BlobDNA>();
+        child2.GetComponent<BlobDNA>().setDNA(DNAOperations.mutate(blob.GetComponent<BlobDNA>().getDNA()));
+        child2.GetComponent<BlobLogic>().energy = this.energy / 2;
         BlobManager.blobs.Add(child2);
 
         Log.PassString(("<" + blob.GetComponent<BlobDNA>().getDNA() + ">" + " Reproduced " + child1.GetComponent<BlobDNA>().getDNA() + " " + child2.GetComponent<BlobDNA>().getDNA()));
