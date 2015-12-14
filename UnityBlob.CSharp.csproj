@@ -51,17 +51,11 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Analytics">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
@@ -80,11 +74,14 @@
     <Compile Include="Assets\Scripts\BlobManager.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\DNAOperations.cs" />
+    <Compile Include="Assets\Scripts\EnvHostility.cs" />
     <Compile Include="Assets\Scripts\FoodManager.cs" />
     <Compile Include="Assets\Scripts\FoodSpeed.cs" />
+    <Compile Include="Assets\Scripts\Graph.cs" />
     <Compile Include="Assets\Scripts\Log.cs" />
     <Compile Include="Assets\Scripts\Main.cs" />
     <Compile Include="Assets\Scripts\SimSpeed.cs" />
+    <Compile Include="Assets\Scripts\SoundToggle.cs" />
     <Compile Include="Assets\Scripts\UpdateFood.cs" />
     <Compile Include="Assets\Scripts\UpdatePop.cs" />
     <Compile Include="Assets\Scripts\UpdatePopFood.cs" />

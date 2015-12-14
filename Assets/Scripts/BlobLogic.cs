@@ -17,6 +17,7 @@ public class BlobLogic : MonoBehaviour
     float t;
     float delay = BlobManager.blobspeed;
     int foundFood = 0;
+    int DNAaux;
 
     public static int ID;
     protected int blobID;
@@ -27,13 +28,16 @@ public class BlobLogic : MonoBehaviour
         rb = blob.GetComponent<Rigidbody>();
         audioSource = blob.GetComponent<AudioSource>();
 
-        this.range = ((float)System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(0,3), 2));
-        this.toReproduce = ((float)System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(3, 8), 2)) + 10;
+        DNAaux = 0;
+        this.range = ((float)System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(DNAaux, DNAOperations.DNARANGE), 2));
+        DNAaux += DNAOperations.DNARANGE;
+        this.toReproduce = ((float)System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(DNAaux, DNAOperations.DNAREPROD), 2)) + 10;
+        DNAaux += DNAOperations.DNAREPROD;
 
         this.blobID = ID++;
 
         audioSource.clip = drop;
-        audioSource.Play();
+        if (Main.hasSound) audioSource.Play();
 	}
 	
 	// Update is called once per frame
@@ -52,7 +56,7 @@ public class BlobLogic : MonoBehaviour
             {
                 DebugFind();
                 t = 0f;
-                energy -= 0.5f;
+                energy -= Main.hostility;
             }
             if (this.energy > toReproduce)
             {
@@ -93,8 +97,8 @@ public class BlobLogic : MonoBehaviour
     void Eat()
     {
         audioSource.clip = chomp;
-        audioSource.Play();
-        this.energy += 30;
+        if (Main.hasSound) audioSource.Play();
+        this.energy += FoodManager.foodEnergy;
     }
 
     void RandomMove()

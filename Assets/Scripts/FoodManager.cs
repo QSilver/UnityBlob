@@ -5,12 +5,13 @@ namespace Assets.Scripts
 {
     abstract class FoodManager
     {
-        static float foodSpawnSize = 10f;
+        static float foodSpawnSize = 50f;
 
         static float t = 0f;
-        static int maxFood = 50;
+        static int maxFood = 500;
         public static float foodSpawnRate = 5f;
         public static int foodSpawnAmount = 1;
+        public static float foodEnergy = 30f;
         public static float spawnspeed = Main.delay * foodSpawnRate;
         public static List<GameObject> foods = new List<GameObject>();
 

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using Assets.Scripts;
 using System.Linq;
+using Assets.Scripts;
 
 public class Main : MonoBehaviour
 {
@@ -8,6 +8,8 @@ public class Main : MonoBehaviour
 
     public static int gameState = 0;
     public static float delay = 50f;
+    public static float hostility = 1f;
+    public static bool hasSound;
     int started = 0;
 
     public GameObject blob;
@@ -49,9 +51,9 @@ public class Main : MonoBehaviour
         toClear = GameObject.FindGameObjectsWithTag("Food");
         for (int i = 0; i < toClear.Length; i++) Destroy(toClear[i]);
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+	void Update ()
+    {
         BlobManager.blobspeed = Main.delay;
         FoodManager.spawnspeed = Main.delay * FoodManager.foodSpawnRate;
 
