@@ -18,6 +18,7 @@ public class BlobLogic : MonoBehaviour
     float delay = BlobManager.blobspeed;
     int foundFood = 0;
     int DNAaux;
+    int state = 0;
 
     public static int ID;
     protected int blobID;
@@ -41,7 +42,8 @@ public class BlobLogic : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         rb.rotation = Quaternion.identity;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
@@ -103,12 +105,14 @@ public class BlobLogic : MonoBehaviour
 
     void RandomMove()
     {
+        this.state = 1;
         float angle = Random.Range(0, 361) * Mathf.PI / 180;
         rb.transform.position += new Vector3(speed * Mathf.Cos(angle) / 10, speed * Mathf.Sin(angle) / 10);
     }
 
     void Reproduce()
     {
+        this.state = 2;
         GameObject child1 = GameObject.Instantiate(blob, blob.transform.position - new Vector3(0f, 0f), blob.transform.rotation) as GameObject;
         child1.AddComponent<BlobDNA>();
         child1.GetComponent<BlobDNA>().setDNA(DNAOperations.mutate(blob.GetComponent<BlobDNA>().getDNA()));
@@ -140,6 +144,7 @@ public class BlobLogic : MonoBehaviour
 
     void DebugFind()
     {
+        this.state = 3;
         target = Find(float.MaxValue);
         if (foundFood == 1)
         {
@@ -192,5 +197,10 @@ public class BlobLogic : MonoBehaviour
     public float getRange()
     {
         return blob.GetComponent<BlobLogic>().range;
+    }
+
+    public int getState()
+    {
+        return this.state;
     }
 }
