@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 using Assets.Scripts;
+using UnityEngine.UI;
 
 public class UpdatePop : MonoBehaviour
 {

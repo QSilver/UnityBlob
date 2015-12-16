@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Graph : MonoBehaviour
 {
+    static Texture2D texture = new Texture2D(1, 1);
+    static Color color = Color.magenta;
+
     void OnGUI()
     {
         int numranges = (int)Mathf.Pow(2, DNAOperations.DNARANGE);
@@ -28,15 +31,14 @@ public class Graph : MonoBehaviour
             for (int i = 0; i < numranges; i++)
             {
                 for (int j = 0; j < ranges[i]; j++)
-                        DrawQuad(new Rect(w, 11*j, step - 2, 10), Color.magenta);
+                        DrawQuad(new Rect(w, 8*j, step - 2, 6));
                 w += step;
             }
         }
     }
 
-    static void DrawQuad(Rect position, Color color)
+    static void DrawQuad(Rect position)
     {
-        Texture2D texture = new Texture2D(1, 1);
         texture.SetPixel(0, 0, color);
         texture.Apply();
         GUI.skin.box.normal.background = texture;
