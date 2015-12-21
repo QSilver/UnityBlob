@@ -5,7 +5,7 @@ namespace Assets.Scripts
 {
     abstract class FoodManager
     {
-        static float foodSpawnSize = 50f;
+        public static float foodSpawnSize = 50f;
 
         static float t = 0f;
         static int maxFood = 500;
@@ -15,16 +15,39 @@ namespace Assets.Scripts
         public static float spawnspeed = Main.delay * foodSpawnRate;
         public static List<GameObject> foods = new List<GameObject>();
 
+        static int foodclusternum = 5;
+        static List<Cluster> clusters = new List<Cluster>();
+
+        public static void Cluster()
+        {
+            clusters.Clear();
+
+            for (int i = 0; i < foodclusternum; i++)
+            {
+                clusters.Add(new Cluster());
+            }
+        }
+
         public static void Spawn(GameObject food)
         {
             t += Time.deltaTime * 1000;
             if (t > spawnspeed && foods.Count < maxFood)
             {
-                for (int i = 0; i <= foodSpawnAmount; i++)
+                for (int i = 0; i < foodSpawnAmount; i++)
                 {
-                    GameObject clone = GameObject.Instantiate(food, new Vector3((float)((Main.random.NextDouble() - 0.5) * foodSpawnSize), (float)((Main.random.NextDouble() - 0.5) * foodSpawnSize)), new Quaternion(0, 0, 0, 0)) as GameObject;
+                    int cluster = Main.random.Next(0,foodclusternum);
+                    GameObject clone = GameObject.Instantiate(food, new Vector3(clusters[cluster].getx() + ((float)Main.random.NextDouble() - 0.5f), clusters[cluster].gety() + ((float)Main.random.NextDouble() - 0.5f)), new Quaternion(0, 0, 0, 0)) as GameObject;
                     foods.Add(clone);
                     t = 0f;
+                }
+            }
+
+            for (int i = 0; i < foodclusternum; i++)
+            {
+                if (clusters[i].UpdateTimer() == false)
+                {
+                    clusters.Remove(clusters[i]);
+                    clusters.Add(new Cluster());
                 }
             }
         }

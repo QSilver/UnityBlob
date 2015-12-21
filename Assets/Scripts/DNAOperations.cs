@@ -6,9 +6,9 @@ namespace Assets.Scripts
 {
     static class DNAOperations
     {
-        public static int DNASIZE = 11;
+        public static int DNASIZE = 15;
         public static int DNARANGE = 3;
-        public static int DNAREPROD = 8;
+        public static int DNAREPROD = 12;
         public static float CROSSOVERPOINT = 0.5f;
 
         static Random random = Main.random;

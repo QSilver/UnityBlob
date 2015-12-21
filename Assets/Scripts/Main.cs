@@ -10,6 +10,7 @@ public class Main : MonoBehaviour
     public static float delay = 50f;
     public static float hostility = 1f;
     public static bool hasSound;
+    public static float globaltimestamp = 0f;
     int started = 0;
 
     public GameObject blob;
@@ -59,10 +60,13 @@ public class Main : MonoBehaviour
 
 	    if (gameState == 1)
         {
+            globaltimestamp += 1;
+
             timestamp += Time.deltaTime;
             if (started == 0)
             {
                 started = 1;
+                
                 for (int i = 1; i <= 10; i++)
                 {
                     GameObject clone = GameObject.Instantiate(blob, new Vector3(((float)Random.Range(-5000, 5000)) / 1000, ((float)Random.Range(-5000, 5000)) / 1000), new Quaternion(0, 0, 0, 0)) as GameObject;
@@ -70,6 +74,8 @@ public class Main : MonoBehaviour
                     clone.GetComponent<BlobDNA>().setDNA(DNAOperations.generate(DNAOperations.DNASIZE));
                     BlobManager.blobs.Add(clone);
                 }
+
+                FoodManager.Cluster();
             }
             FoodManager.Spawn(food);
         }
