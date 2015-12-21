@@ -44,6 +44,9 @@ public class BlobLogic : MonoBehaviour
         //this.toReproduce = ((float)System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(DNAaux, DNAOperations.DNAREPROD), 2)) + 10;
         DNAaux += DNAOperations.DNAREPROD;
 
+        this.levythreshold = System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(0,2),2);
+        this.levytime = System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(2, 7),2);
+
         this.blobID = ID++;
 
         audioSource.clip = drop;
