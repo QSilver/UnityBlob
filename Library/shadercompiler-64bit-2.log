@@ -1,5 +1,5 @@
 Base path: D:/Unity/Editor/Data
-Pipe name: \\.\pipe\UnityShaderCompiler-64bit-2-8704
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-2-9928
 Cmd: getPlatforms
 Unhandled exception: Readfile from pipe failed. GLE=The pipe has been ended.
 

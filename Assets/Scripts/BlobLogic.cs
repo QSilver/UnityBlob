@@ -26,11 +26,13 @@ public class BlobLogic : MonoBehaviour
     int levythreshold = 1;
     int shouldLevy = 0;
     int isLevy = 0;
+    public int anglefix = 0;
 
     List<float> ate = new List<float>();
 
     public static int ID;
     protected int blobID;
+    public int showID;
 
 	// Use this for initialization
 	void Start ()
@@ -61,6 +63,7 @@ public class BlobLogic : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        showID = blobID;
         rb.rotation = Quaternion.identity;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
@@ -90,6 +93,22 @@ public class BlobLogic : MonoBehaviour
 
     void Move()
     {
+        /*
+        #region Turn Back
+        if (rb.transform.position.x <= -50f || rb.transform.position.x >= 50f || rb.transform.position.y <= -50f || rb.transform.position.y >= 50f) anglefix = 1;
+        else anglefix = 0;
+
+        if (anglefix == 1) angle = angle - Mathf.PI;
+        #endregion
+        */
+
+        #region Wrap-Around
+        if (rb.transform.position.x <= -50f) rb.transform.position = new Vector3(49f, rb.transform.position.y);
+        if (rb.transform.position.x >= 50f) rb.transform.position = new Vector3(-49f, rb.transform.position.y);
+        if (rb.transform.position.y <= -50f) rb.transform.position = new Vector3(rb.transform.position.x, 49f);
+        if (rb.transform.position.y >= 50f) rb.transform.position = new Vector3(rb.transform.position.x, -49f);
+        #endregion
+
         LevyUpdate();
 
         if (ate.Count < levythreshold) shouldLevy = 1;
@@ -116,7 +135,7 @@ public class BlobLogic : MonoBehaviour
                 if (target != null)
                 {
                     shouldLevy = 0;
-                    float angle = Mathf.Atan2((this.transform.position.y - target.transform.position.y), (this.transform.position.x - target.transform.position.x)) - Mathf.PI;
+                    angle = Mathf.Atan2((this.transform.position.y - target.transform.position.y), (this.transform.position.x - target.transform.position.x)) - Mathf.PI;
                     rb.transform.position += new Vector3(speed * Mathf.Cos(angle) / 10, speed * Mathf.Sin(angle) / 10);
                 }
                 else
