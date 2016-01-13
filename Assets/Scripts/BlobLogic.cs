@@ -28,6 +28,8 @@ public class BlobLogic : MonoBehaviour
     int isLevy = 0;
     public int anglefix = 0;
 
+    int isr = 0, isg = 0, isb = 0;
+
     List<float> ate = new List<float>();
 
     public static int ID;
@@ -41,13 +43,19 @@ public class BlobLogic : MonoBehaviour
         audioSource = blob.GetComponent<AudioSource>();
 
         DNAaux = 0;
-        //this.range = ((float)System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(DNAaux, DNAOperations.DNARANGE), 2));
-        DNAaux += DNAOperations.DNARANGE;
-        //this.toReproduce = ((float)System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(DNAaux, DNAOperations.DNAREPROD), 2)) + 10;
+        this.levytime = (System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(DNAaux, DNAOperations.DNALEVYTIME), 2));
+        DNAaux += DNAOperations.DNALEVYTIME;
+        this.toReproduce = ((float)System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(DNAaux, DNAOperations.DNAREPROD), 2)) + 100f;
         DNAaux += DNAOperations.DNAREPROD;
-
-        this.levythreshold = System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(0,2),2);
-        this.levytime = System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(2, 7),2);
+        /*
+        this.isr = (System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(DNAaux, 1), 2));
+        DNAaux += 1;
+        this.isg = (System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(DNAaux, 1), 2));
+        DNAaux += 1;
+        this.isb = (System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(DNAaux, 1), 2));
+        DNAaux += 1;
+         */
+        this.isr = 1;
 
         this.blobID = ID++;
 
@@ -63,12 +71,13 @@ public class BlobLogic : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+
         showID = blobID;
         rb.rotation = Quaternion.identity;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
-        this.GetComponentInChildren<SpriteRenderer>().color = new Color(this.energy/150, 0, 0, 1);
+        this.GetComponentInChildren<SpriteRenderer>().color = new Color(this.energy / 150 * isr, this.energy / 150 * isg, this.energy / 150 * isb, 1);
 
         if (Main.gameState == 1)
         {
@@ -93,22 +102,24 @@ public class BlobLogic : MonoBehaviour
 
     void Move()
     {
-        /*
+        
         #region Turn Back
-        if (rb.transform.position.x <= -50f || rb.transform.position.x >= 50f || rb.transform.position.y <= -50f || rb.transform.position.y >= 50f) anglefix = 1;
+        float turn = FoodManager.foodSpawnSize / 2;
+        if (rb.transform.position.x <= -turn || rb.transform.position.x >= turn || rb.transform.position.y <= -turn || rb.transform.position.y >= turn) anglefix = 1;
         else anglefix = 0;
 
         if (anglefix == 1) angle = angle - Mathf.PI;
         #endregion
-        */
-
+        
+        /*
         #region Wrap-Around
-        if (rb.transform.position.x <= -50f) rb.transform.position = new Vector3(49f, rb.transform.position.y);
-        if (rb.transform.position.x >= 50f) rb.transform.position = new Vector3(-49f, rb.transform.position.y);
-        if (rb.transform.position.y <= -50f) rb.transform.position = new Vector3(rb.transform.position.x, 49f);
-        if (rb.transform.position.y >= 50f) rb.transform.position = new Vector3(rb.transform.position.x, -49f);
+        float turn = FoodManager.foodSpawnSize / 2;
+        if (rb.transform.position.x <= -turn) rb.transform.position = new Vector3(turn-1, rb.transform.position.y);
+        if (rb.transform.position.x >= turn) rb.transform.position = new Vector3(-turn+1, rb.transform.position.y);
+        if (rb.transform.position.y <= -turn) rb.transform.position = new Vector3(rb.transform.position.x, turn-1);
+        if (rb.transform.position.y >= turn) rb.transform.position = new Vector3(rb.transform.position.x, -turn+1);
         #endregion
-
+        */
         LevyUpdate();
 
         if (ate.Count < levythreshold) shouldLevy = 1;
@@ -266,5 +277,9 @@ public class BlobLogic : MonoBehaviour
     public int getState()
     {
         return this.state;
+    }
+    public float getReprod()
+    {
+        return this.toReproduce;
     }
 }

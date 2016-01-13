@@ -5,14 +5,12 @@ using Assets.Scripts;
 
 public class BlobDisplay : MonoBehaviour
 {
-    public GameObject bt;
     static string display;
     static BlobLogic b;
     static int state;
 
     void Start()
     {
-        bt.GetComponent<BehaviourTree>().Display(0);
     }
 
     public static void Load(BlobLogic ext)
@@ -23,18 +21,17 @@ public class BlobDisplay : MonoBehaviour
 
 	void Update ()
     {
-        bt.GetComponent<BehaviourTree>().Display(state);
         if (b != null)
         {
-            display = "BlobID: " + b.getID() + System.Environment.NewLine;
+            display =  "BlobID: " + b.getID() + System.Environment.NewLine;
             display += "Energy: " + b.getEnergy() + System.Environment.NewLine;
             display += "DNA: " + b.GetComponent<BlobDNA>().getDNA() + System.Environment.NewLine;
-            display += "Range: " + b.GetComponent<BlobLogic>().getRange();
+            display += "Range: " + b.GetComponent<BlobLogic>().getRange() + System.Environment.NewLine;
+            display += "To Reprod: " + b.GetComponent<BlobLogic>().getReprod();
         }
         else
         {
             display = "";
-            bt.GetComponent<BehaviourTree>().Display(0);
         }
         this.GetComponent<Text>().text = display;
 	}

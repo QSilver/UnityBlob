@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class Graph : MonoBehaviour
 {
-    static Texture2D texture = new Texture2D(1, 1);
-    static Color color = Color.magenta;
+    //static Texture2D texture = new Texture2D(1, 1);
+    //static Color color = Color.magenta;
 
+    /*
     void OnGUI()
     {
         int numranges = (int)Mathf.Pow(2, DNAOperations.DNARANGE);
@@ -44,4 +45,5 @@ public class Graph : MonoBehaviour
         GUI.skin.box.normal.background = texture;
         GUI.Box(position, GUIContent.none);
     }
+     */
 }

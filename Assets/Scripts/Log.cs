@@ -21,7 +21,9 @@ public class Log : MonoBehaviour {
         aux = 1;
     }
 
-	void Update () {
+	void Update ()
+    {
+        /*
         if (reset == 1)
         {
             log = "";
@@ -49,5 +51,6 @@ public class Log : MonoBehaviour {
             this.GetComponent<Text>().text = log;
             Event = ""; aux = 0;
         }
+         */
 	}
 }
