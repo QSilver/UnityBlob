@@ -5,24 +5,29 @@ using Assets.Scripts;
 
 public class BlobDisplay : MonoBehaviour
 {
+    public GameObject BlobPanel;
+
     static string display;
     static BlobLogic b;
-    static int state;
+    //static int state;
 
     void Start()
     {
+        BlobPanel.GetComponent<CanvasGroup>().alpha = 0;
     }
 
     public static void Load(BlobLogic ext)
     {
         b = ext;
-        state = ext.getState();
+        //state = ext.getState();
     }
 
 	void Update ()
     {
         if (b != null)
         {
+            BlobPanel.GetComponent<CanvasGroup>().alpha = 1;
+
             display =  "BlobID: " + b.getID() + System.Environment.NewLine;
             display += "Energy: " + b.getEnergy() + System.Environment.NewLine;
             display += "DNA: " + b.GetComponent<BlobDNA>().getDNA() + System.Environment.NewLine;
@@ -32,6 +37,7 @@ public class BlobDisplay : MonoBehaviour
         else
         {
             display = "";
+            BlobPanel.GetComponent<CanvasGroup>().alpha = 0;
         }
         this.GetComponent<Text>().text = display;
 	}

@@ -49,17 +49,11 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Analytics">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
@@ -70,8 +64,55 @@
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\Graph_Maker\DOTween\DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween43">
+      <HintPath>Assets\Graph_Maker\DOTween\DOTween43.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween46">
+      <HintPath>Assets\Graph_Maker\DOTween\DOTween46.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Graph_Maker\Examples\X_Dynamic\WMG_X_Data_Provider.cs" />
+    <Compile Include="Assets\Graph_Maker\Examples\X_Dynamic\WMG_X_Dynamic.cs" />
+    <Compile Include="Assets\Graph_Maker\Examples\X_Ring_Graph\WMG_X_Ring_Graph.cs" />
+    <Compile Include="Assets\Graph_Maker\Examples\X_Tutorial_1\WMG_X_Tutorial_1.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\GUIDependent\WMG_Anim.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\GUIDependent\WMG_Events.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\GUIDependent\WMG_GUI_Functions.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\GUIDependent\WMG_Graph_Tooltip.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\GUIDependent\WMG_Text_Functions.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\Graphs\WMG_Axis_Graph.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\Graphs\WMG_Bezier_Band_Graph.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\Graphs\WMG_Grid.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\Graphs\WMG_Hierarchical_Tree.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\Graphs\WMG_Pie_Graph.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\Graphs\WMG_Radar_Graph.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\Graphs\WMG_Random_Graph.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\Graphs\WMG_Ring_Graph.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\Utils\WMG_Change_Obj.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\Utils\WMG_EnumFlagAttribute.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\Utils\WMG_Enums.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\Utils\WMG_List.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\Utils\WMG_Reflection.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\Utils\WMG_Util.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\WMG_Axis.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\WMG_Bezier_Band.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\WMG_Caching_Functions.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\WMG_Data_Generators.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\WMG_Data_Source.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\WMG_Graph_Auto_Anim.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\WMG_Graph_Manager.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\WMG_Legend.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\WMG_Legend_Entry.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\WMG_Link.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\WMG_Node.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\WMG_Path_Finding.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\WMG_Pie_Graph_Slice.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\WMG_Ring.cs" />
+    <Compile Include="Assets\Graph_Maker\Scripts\WMG_Series.cs" />
     <Compile Include="Assets\Scripts\BehaviourTree.cs" />
     <Compile Include="Assets\Scripts\BlobDNA.cs" />
     <Compile Include="Assets\Scripts\BlobDisplay.cs" />
@@ -91,6 +132,13 @@
     <Compile Include="Assets\Scripts\UpdateFood.cs" />
     <Compile Include="Assets\Scripts\UpdatePop.cs" />
     <Compile Include="Assets\Scripts\UpdatePopFood.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Graph_Maker\ReadMe-1.5.2.txt" />
+    <None Include="Assets\Graph_Maker\Shaders\AreaShadingFill.shader" />
+    <None Include="Assets\Graph_Maker\Shaders\AreaShadingFill_SF.shader" />
+    <None Include="Assets\Graph_Maker\Shaders\AreaShadingGradient.shader" />
+    <None Include="Assets\Graph_Maker\Shaders\AreaShadingGradient_SF.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>

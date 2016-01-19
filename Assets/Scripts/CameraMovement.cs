@@ -6,6 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
     private float speed = 5f;
     public GameObject blob;
+    GameObject follow;
 
     Plane XYPlane = new Plane(Vector3.forward, Vector3.zero);
     private LineRenderer m_LineRenderer;
@@ -33,7 +34,32 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        if (Main.gameState == 1 && Input.GetKey(KeyCode.Mouse0))
+        if (follow != null) transform.position = new Vector3(follow.transform.position.x, follow.transform.position.y, this.transform.position.z);
+
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            float mindist = 10f;
+            GameObject closest = null;
+            Vector3 mp = GetMouse();
+            foreach (GameObject b in BlobManager.blobs)
+            {
+                float dist = (b.transform.position.x - mp.x) * (b.transform.position.x - mp.x) + (b.transform.position.y - mp.y) * (b.transform.position.y - mp.y);
+                if (dist < mindist)
+                {
+                    mindist = dist;
+                    closest = b;
+                }
+            }
+            if (mindist < 0.5f)
+            {
+                follow = closest;
+                GameObject current = BlobManager.blobs[BlobManager.blobs.IndexOf(closest)];
+                current.GetComponentInChildren<SpriteRenderer>().color = new Color(0, current.GetComponent<BlobLogic>().getReprod() / 300, 0, 1);
+                BlobDisplay.Load(closest.GetComponent<BlobLogic>());
+            }
+        }
+
+        if (Main.gameState == 1 && Input.GetKey(KeyCode.Mouse1))
         {
             Vector3 mp = GetMouse();
 
@@ -48,25 +74,25 @@ public class CameraMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+            transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0)); follow = null;
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
+            transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0)); follow = null;
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
+            transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0)); follow = null;
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
+            transform.Translate(new Vector3(0, speed * Time.deltaTime, 0)); follow = null;
         }
-        if ((Input.GetKey(KeyCode.KeypadPlus) || (Input.GetKey(KeyCode.Z))) && transform.position.z < -1)
+        if ((Input.GetKey(KeyCode.KeypadPlus) || (Input.GetKey(KeyCode.Equals))) && transform.position.z < -1)
         {
             transform.Translate(new Vector3(0, 0, speed * Time.deltaTime * 5));
         }
-        if (Input.GetKey(KeyCode.KeypadMinus) || (Input.GetKey(KeyCode.X)))
+        if (Input.GetKey(KeyCode.KeypadMinus) || (Input.GetKey(KeyCode.Minus)))
         {
             transform.Translate(new Vector3(0, 0, -speed * Time.deltaTime * 5));
         }

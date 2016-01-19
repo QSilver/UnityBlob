@@ -13,7 +13,7 @@ public class BlobLogic : MonoBehaviour
     public float speed;
 
     float energy = 100f;
-    float range = 0.5f;
+    float range = 0.1f;
     float toReproduce = 200f;
     float t;
     float delay = BlobManager.blobspeed;
@@ -28,7 +28,7 @@ public class BlobLogic : MonoBehaviour
     int isLevy = 0;
     public int anglefix = 0;
 
-    int isr = 0, isg = 0, isb = 0;
+    //int isr = 0, isg = 0, isb = 0;
 
     List<float> ate = new List<float>();
 
@@ -55,7 +55,6 @@ public class BlobLogic : MonoBehaviour
         this.isb = (System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(DNAaux, 1), 2));
         DNAaux += 1;
          */
-        this.isr = 1;
 
         this.blobID = ID++;
 
@@ -77,7 +76,12 @@ public class BlobLogic : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
-        this.GetComponentInChildren<SpriteRenderer>().color = new Color(this.energy / 150 * isr, this.energy / 150 * isg, this.energy / 150 * isb, 1);
+        this.GetComponentInChildren<SpriteRenderer>().color = new Color(toReproduce/300, 0, 0, 1);
+        //this.GetComponentInChildren<SpriteRenderer>().color = new Color(this.energy / 150 * isr, this.energy / 150 * isg, this.energy / 150 * isb, 1);
+
+        float blobsize = (this.energy + 50) / 150;
+        //this.GetComponent<SphereCollider>().radius = (float)(0.1 * blobsize);
+        this.gameObject.transform.localScale = new Vector3(blobsize, blobsize, 1);
 
         if (Main.gameState == 1)
         {
@@ -104,11 +108,11 @@ public class BlobLogic : MonoBehaviour
     {
         
         #region Turn Back
-        float turn = FoodManager.foodSpawnSize / 2;
+        float turn = FoodManager.foodSpawnSize / 2 + FoodManager.foodSpawnDiameter * 2;
         if (rb.transform.position.x <= -turn || rb.transform.position.x >= turn || rb.transform.position.y <= -turn || rb.transform.position.y >= turn) anglefix = 1;
         else anglefix = 0;
 
-        if (anglefix == 1) angle = angle - Mathf.PI;
+        if (anglefix == 1) angle = angle - Mathf.PI - Mathf.PI * (float)(Main.random.NextDouble() - 0.5);
         #endregion
         
         /*
@@ -278,8 +282,14 @@ public class BlobLogic : MonoBehaviour
     {
         return this.state;
     }
+
     public float getReprod()
     {
         return this.toReproduce;
+    }
+
+    public float getPatience()
+    {
+        return this.levytime;
     }
 }

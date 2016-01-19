@@ -6,12 +6,18 @@ public class Main : MonoBehaviour
 {
     public static float timestamp = 0f;
 
+    public WMG_Series population_data;
+    public WMG_Series population_reprod;
+    public WMG_Series population_patience;
+
     public static int gameState = 0;
     public static float delay = 50f;
     public static float hostility = 1f;
     public static bool hasSound;
     public static float globaltimestamp = 0f;
+
     int started = 0;
+    int linetick = 0, lineupdate = 30;
 
     public GameObject blob;
     public GameObject food;
@@ -28,6 +34,15 @@ public class Main : MonoBehaviour
         Application.runInBackground = true;
     }
 
+    /* void OnGUI()
+    {
+        Texture2D water = new Texture2D(1, 1);
+        water.SetPixel(0, 0, new Color(0, 128, 192, 255));
+        water.Apply();
+
+        GUI.Box(new Rect(-1 * FoodManager.foodSpawnSize / 2, -1 * FoodManager.foodSpawnSize / 2, FoodManager.foodSpawnSize, FoodManager.foodSpawnSize), GUIContent.none);
+    } */
+
     public void StartPressed()
     {
         gameState = 1;
@@ -42,6 +57,7 @@ public class Main : MonoBehaviour
     public void ResetPressed()
     {
         gameState = 0; started = 0;
+        ResetLineGraph();
         BlobManager.blobs.Clear();
         FoodManager.foods.Clear();
 
@@ -60,6 +76,12 @@ public class Main : MonoBehaviour
 
 	    if (gameState == 1)
         {
+            linetick++; if (linetick >= lineupdate)
+            {
+                linetick = 0;
+                UpdateLineGraph();
+            }
+
             globaltimestamp += 1;
 
             timestamp += Time.deltaTime;
@@ -78,6 +100,45 @@ public class Main : MonoBehaviour
                 FoodManager.Cluster();
             }
             FoodManager.Spawn(food);
+
+            if (BlobManager.blobs.Count == 0) PausePressed();
         }
 	}
+
+    void UpdateLineGraph()
+    {
+        population_data.pointValues.Add(new Vector2(0, BlobManager.blobs.Count));
+        population_data.pointValues.Remove(population_data.pointValues[0]);
+
+        float avgreprod = 0f;
+        foreach (GameObject b in BlobManager.blobs)
+            avgreprod += b.GetComponent<BlobLogic>().getReprod();
+        if (BlobManager.blobs.Count != 0) avgreprod /= BlobManager.blobs.Count;
+        else avgreprod = 0;
+        population_reprod.pointValues.Add(new Vector2(0, avgreprod));
+        population_reprod.pointValues.Remove(population_reprod.pointValues[0]);
+
+        float avgpati = 0f;
+        foreach (GameObject b in BlobManager.blobs)
+            avgpati += b.GetComponent<BlobLogic>().getPatience();
+        if (BlobManager.blobs.Count != 0) avgpati /= BlobManager.blobs.Count;
+        else avgpati = 0;
+        population_patience.pointValues.Add(new Vector2(0, avgpati));
+        population_patience.pointValues.Remove(population_patience.pointValues[0]);
+    }
+
+    void ResetLineGraph()
+    {
+        population_data.pointValues.Clear();
+        for (int i = 0; i < 100; i++)
+            population_data.pointValues.Add(new Vector2(0, 0));
+
+        population_reprod.pointValues.Clear();
+        for (int i = 0; i < 100; i++)
+            population_reprod.pointValues.Add(new Vector2(0, 0));
+
+        population_patience.pointValues.Clear();
+        for (int i = 0; i < 100; i++)
+            population_patience.pointValues.Add(new Vector2(0, 0));
+    }
 }

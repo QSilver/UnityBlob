@@ -6,19 +6,19 @@ using System;
 public class Log : MonoBehaviour {
     String log;
     static String Event;
-    static int aux;
-    static int reset;
+    //static int aux;
+    //static int reset;
     float q;
 
     public static void Reset()
     {
-        reset = 1;
+        //reset = 1;
     }
 
     public static void PassString(String s)
     {
-        Event += s + " ";
-        aux = 1;
+        //Event += s + " ";
+        //aux = 1;
     }
 
 	void Update ()
