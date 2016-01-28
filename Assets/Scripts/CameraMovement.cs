@@ -27,15 +27,11 @@ public class CameraMovement : MonoBehaviour
         return Vector3.zero;
     }
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
-        if (follow != null) transform.position = new Vector3(follow.transform.position.x, follow.transform.position.y, this.transform.position.z);
+        //if (follow != null) transform.position = new Vector3(follow.transform.position.x, follow.transform.position.y, this.transform.position.z);
 
+        #region SelectBlob
         if (Input.GetKey(KeyCode.Mouse0))
         {
             float mindist = 10f;
@@ -58,6 +54,7 @@ public class CameraMovement : MonoBehaviour
                 BlobDisplay.Load(closest.GetComponent<BlobLogic>());
             }
         }
+        #endregion
 
         if (Main.gameState == 1 && Input.GetKey(KeyCode.Mouse1))
         {
@@ -65,10 +62,13 @@ public class CameraMovement : MonoBehaviour
 
             if (Mathf.Abs(mp.x) < FoodManager.foodSpawnSize / 2 && Mathf.Abs(mp.y) < FoodManager.foodSpawnSize / 2)
             {
-                GameObject clone = GameObject.Instantiate(blob, mp, new Quaternion(0, 0, 0, 0)) as GameObject;
-                clone.AddComponent<BlobDNA>();
-                clone.GetComponent<BlobDNA>().setDNA(DNAOperations.generate(DNAOperations.DNASIZE));
-                BlobManager.blobs.Add(clone);
+                if (BlobManager.blobs.Count < 1000)
+                {
+                    GameObject clone = GameObject.Instantiate(blob, mp, new Quaternion(0, 0, 0, 0)) as GameObject;
+                    clone.AddComponent<BlobDNA>();
+                    clone.GetComponent<BlobDNA>().setDNA(DNAOperations.generate(DNAOperations.DNASIZE));
+                    BlobManager.blobs.Add(clone);
+                }
             }
         }
 

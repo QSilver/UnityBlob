@@ -31,7 +31,7 @@ public class BlobDisplay : MonoBehaviour
             display =  "BlobID: " + b.getID() + System.Environment.NewLine;
             display += "Energy: " + b.getEnergy() + System.Environment.NewLine;
             display += "DNA: " + b.GetComponent<BlobDNA>().getDNA() + System.Environment.NewLine;
-            display += "Range: " + b.GetComponent<BlobLogic>().getRange() + System.Environment.NewLine;
+            display += "Patience: " + b.GetComponent<BlobLogic>().getPatience() + System.Environment.NewLine;
             display += "To Reprod: " + b.GetComponent<BlobLogic>().getReprod();
         }
         else

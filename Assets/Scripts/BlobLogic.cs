@@ -76,8 +76,7 @@ public class BlobLogic : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
-        this.GetComponentInChildren<SpriteRenderer>().color = new Color(toReproduce/300, 0, 0, 1);
-        //this.GetComponentInChildren<SpriteRenderer>().color = new Color(this.energy / 150 * isr, this.energy / 150 * isg, this.energy / 150 * isb, 1);
+        this.GetComponentInChildren<SpriteRenderer>().color = new Color(0, 0, ((float)(levytime + 50)) / 256, 1);
 
         float blobsize = (this.energy + 50) / 150;
         //this.GetComponent<SphereCollider>().radius = (float)(0.1 * blobsize);
@@ -108,7 +107,7 @@ public class BlobLogic : MonoBehaviour
     {
         
         #region Turn Back
-        float turn = FoodManager.foodSpawnSize / 2 + FoodManager.foodSpawnDiameter * 2;
+        float turn = FoodManager.foodSpawnSize / 2;
         if (rb.transform.position.x <= -turn || rb.transform.position.x >= turn || rb.transform.position.y <= -turn || rb.transform.position.y >= turn) anglefix = 1;
         else anglefix = 0;
 
@@ -186,7 +185,7 @@ public class BlobLogic : MonoBehaviour
 
     void OnMouseDown()
     {
-        Log.PassString((this.blobID + " Clicked"));
+        //Log.PassString((this.blobID + " Clicked"));
         BlobDisplay.Load(this);
     }
 
@@ -220,7 +219,7 @@ public class BlobLogic : MonoBehaviour
         child2.GetComponent<BlobLogic>().energy = this.energy / 2;
         BlobManager.blobs.Add(child2);
 
-        Log.PassString(("<" + blob.GetComponent<BlobDNA>().getDNA() + ">" + " Reproduced " + child1.GetComponent<BlobDNA>().getDNA() + " " + child2.GetComponent<BlobDNA>().getDNA()));
+        //Log.PassString(("<" + blob.GetComponent<BlobDNA>().getDNA() + ">" + " Reproduced " + child1.GetComponent<BlobDNA>().getDNA() + " " + child2.GetComponent<BlobDNA>().getDNA()));
 
         // duplicate to avoid logging death
         Destroy(blob.gameObject);
@@ -230,7 +229,7 @@ public class BlobLogic : MonoBehaviour
 
     void Starve()
     {
-        Log.PassString(("<" + blob.GetComponent<BlobDNA>().getDNA() + ">" + " Died"));
+        //Log.PassString(("<" + blob.GetComponent<BlobDNA>().getDNA() + ">" + " Died"));
 
         Destroy(this.gameObject);
         BlobManager.blobs.Remove(this.gameObject);

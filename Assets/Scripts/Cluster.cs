@@ -12,8 +12,8 @@ namespace Assets.Scripts
 
         public Cluster()
         {
-            this.x = ((float)Main.random.NextDouble() - 0.5f) * FoodManager.foodSpawnSize;
-            this.y = ((float)Main.random.NextDouble() - 0.5f) * FoodManager.foodSpawnSize;
+            this.x = ((float)Main.random.NextDouble() - 0.5f) * (FoodManager.foodSpawnSize - FoodManager.foodSpawnDiameter);
+            this.y = ((float)Main.random.NextDouble() - 0.5f) * (FoodManager.foodSpawnSize - FoodManager.foodSpawnDiameter);
             this.timer = ((float)Main.random.NextDouble()) * 60 + 60;
         }
 

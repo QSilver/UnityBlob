@@ -4,15 +4,15 @@ using Assets.Scripts;
 
 public class Main : MonoBehaviour
 {
-    public static float timestamp = 0f;
-
     public WMG_Series population_data;
     public WMG_Series population_reprod;
     public WMG_Series population_patience;
 
+    public static float timestamp = 0f;
+
     public static int gameState = 0;
     public static float delay = 50f;
-    public static float hostility = 1f;
+    public static float hostility = 0.1f;
     public static bool hasSound;
     public static float globaltimestamp = 0f;
 
@@ -21,6 +21,7 @@ public class Main : MonoBehaviour
 
     public GameObject blob;
     public GameObject food;
+    public GameObject gamearea;
     public static System.Random random = new System.Random();
 
     public static string RandomString(int length)
@@ -32,6 +33,8 @@ public class Main : MonoBehaviour
     void Start()
     {
         Application.runInBackground = true;
+        float bgScale = 0.049f;
+        gamearea.transform.localScale = new Vector3(FoodManager.foodSpawnSize * bgScale, FoodManager.foodSpawnSize * bgScale, 1);
     }
 
     /* void OnGUI()
@@ -61,7 +64,7 @@ public class Main : MonoBehaviour
         BlobManager.blobs.Clear();
         FoodManager.foods.Clear();
 
-        timestamp = 0; BlobLogic.ID = 0; Log.Reset();
+        timestamp = 0; BlobLogic.ID = 0;
 
         var toClear = GameObject.FindGameObjectsWithTag("Blob");
         for (int i = 0; i < toClear.Length; i++) Destroy(toClear[i]);
@@ -100,12 +103,10 @@ public class Main : MonoBehaviour
                 FoodManager.Cluster();
             }
             FoodManager.Spawn(food);
-
-            if (BlobManager.blobs.Count == 0) PausePressed();
         }
 	}
 
-    void UpdateLineGraph()
+    public void UpdateLineGraph()
     {
         population_data.pointValues.Add(new Vector2(0, BlobManager.blobs.Count));
         population_data.pointValues.Remove(population_data.pointValues[0]);
@@ -127,7 +128,7 @@ public class Main : MonoBehaviour
         population_patience.pointValues.Remove(population_patience.pointValues[0]);
     }
 
-    void ResetLineGraph()
+    public void ResetLineGraph()
     {
         population_data.pointValues.Clear();
         for (int i = 0; i < 100; i++)
