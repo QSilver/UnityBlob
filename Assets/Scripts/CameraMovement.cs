@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Assets.Scripts;
+using UnityEngine.UI;
 
 public class CameraMovement : MonoBehaviour 
 {
@@ -10,6 +11,8 @@ public class CameraMovement : MonoBehaviour
 
     Plane XYPlane = new Plane(Vector3.forward, Vector3.zero);
     private LineRenderer m_LineRenderer;
+
+    public static bool cameraToggle;
 
     private Vector3 GetMouse()
     {
@@ -29,7 +32,9 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        //if (follow != null) transform.position = new Vector3(follow.transform.position.x, follow.transform.position.y, this.transform.position.z);
+        if (cameraToggle == true)
+            if (follow != null)
+                transform.position = new Vector3(follow.transform.position.x, follow.transform.position.y, this.transform.position.z);
 
         #region SelectBlob
         if (Input.GetKey(KeyCode.Mouse0))

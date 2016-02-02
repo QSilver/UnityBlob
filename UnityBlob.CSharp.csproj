@@ -117,6 +117,7 @@
     <Compile Include="Assets\Scripts\BlobDisplay.cs" />
     <Compile Include="Assets\Scripts\BlobLogic.cs" />
     <Compile Include="Assets\Scripts\BlobManager.cs" />
+    <Compile Include="Assets\Scripts\CamToggle.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\Cluster.cs" />
     <Compile Include="Assets\Scripts\ClusterSize.cs" />
