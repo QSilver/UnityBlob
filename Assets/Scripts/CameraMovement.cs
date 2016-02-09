@@ -7,6 +7,7 @@ public class CameraMovement : MonoBehaviour
 {
     private float speed = 5f;
     public GameObject blob;
+    public GameObject food;
     GameObject follow;
 
     Plane XYPlane = new Plane(Vector3.forward, Vector3.zero);
@@ -61,7 +62,7 @@ public class CameraMovement : MonoBehaviour
         }
         #endregion
 
-        if (Main.gameState == 1 && Input.GetKey(KeyCode.Mouse1))
+        if (Main.gameState == 1 && Input.GetKey(KeyCode.Mouse0) && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
         {
             Vector3 mp = GetMouse();
 
@@ -74,6 +75,17 @@ public class CameraMovement : MonoBehaviour
                     clone.GetComponent<BlobDNA>().setDNA(DNAOperations.generate(DNAOperations.DNASIZE));
                     BlobManager.blobs.Add(clone);
                 }
+            }
+        }
+
+        if (Input.GetKey(KeyCode.Mouse1) && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
+        {
+            if (FoodManager.foods.Count < FoodManager.maxFood)
+            {
+                Vector3 mp = GetMouse();
+
+                GameObject clone = GameObject.Instantiate(food, mp, new Quaternion(0, 0, 0, 0)) as GameObject;
+                FoodManager.foods.Add(clone);
             }
         }
 
@@ -93,11 +105,11 @@ public class CameraMovement : MonoBehaviour
         {
             transform.Translate(new Vector3(0, speed * Time.deltaTime, 0)); follow = null;
         }
-        if ((Input.GetKey(KeyCode.KeypadPlus) || (Input.GetKey(KeyCode.Equals))) && transform.position.z < -1)
+        if ((Input.GetKey(KeyCode.KeypadPlus) || Input.GetKey(KeyCode.Equals) || (Input.GetAxis("Mouse ScrollWheel") > 0)) && transform.position.z < -1)
         {
             transform.Translate(new Vector3(0, 0, speed * Time.deltaTime * 5));
         }
-        if (Input.GetKey(KeyCode.KeypadMinus) || (Input.GetKey(KeyCode.Minus)))
+        if (Input.GetKey(KeyCode.KeypadMinus) || Input.GetKey(KeyCode.Minus) || (Input.GetAxis("Mouse ScrollWheel") < 0))
         {
             transform.Translate(new Vector3(0, 0, -speed * Time.deltaTime * 5));
         }

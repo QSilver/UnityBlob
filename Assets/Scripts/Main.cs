@@ -142,4 +142,28 @@ public class Main : MonoBehaviour
         for (int i = 0; i < 100; i++)
             population_patience.pointValues.Add(new Vector2(0, 0));
     }
+
+    public static void SaveState(string filename)
+    {
+        /*
+        System.IO.StreamWriter file1 = new System.IO.StreamWriter(filename + "_blobs.txt");
+        foreach (GameObject blob in BlobManager.blobs)
+        {
+            file1.WriteLine( blob.GetComponent<BlobLogic>().getID() + " " +
+                            blob.GetComponent<BlobLogic>().getEnergy() + " " +
+                            blob.transform.position.x + " " + blob.transform.position.y + " " +
+                            blob.GetComponent<BlobDNA>().getDNA());
+        }*/
+
+        System.IO.StreamWriter file2 = new System.IO.StreamWriter(filename + "_food.txt");
+        foreach (GameObject food in FoodManager.foods)
+        {
+            file2.WriteLine(food.transform.position.x + " " + food.transform.position.y);
+        }
+    }
+
+    public static void LoadState(string filename)
+    {
+
+    }
 }

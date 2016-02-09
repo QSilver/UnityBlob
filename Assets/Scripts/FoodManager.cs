@@ -8,7 +8,7 @@ namespace Assets.Scripts
         public static float foodSpawnSize = 50f;
 
         static float t = 0f;
-        static int maxFood = 500;
+        public static int maxFood = 500;
         public static float foodSpawnRate = 5f;
         public static int foodSpawnAmount = 1;
         public static float foodSpawnDiameter = 1.5f;

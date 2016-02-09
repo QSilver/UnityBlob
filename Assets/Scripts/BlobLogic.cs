@@ -75,6 +75,7 @@ public class BlobLogic : MonoBehaviour
         rb.rotation = Quaternion.identity;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+        rb.transform.position = new Vector3(rb.transform.position.x, rb.transform.position.y, 0);
 
         this.GetComponentInChildren<SpriteRenderer>().color = new Color(0, 0, ((float)(levytime + 50)) / 256, 1);
 
@@ -92,7 +93,7 @@ public class BlobLogic : MonoBehaviour
                 t = 0f;
                 energy -= Main.hostility;
             }
-            if (this.energy > toReproduce)
+            if (this.energy > toReproduce)// && BlobManager.blobs.Count < 1000)
             {
                 Reproduce();
             }
