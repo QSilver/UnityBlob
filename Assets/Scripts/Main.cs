@@ -24,7 +24,10 @@ public class Main : MonoBehaviour
     public GameObject food;
     public GameObject gamearea;
     public InputField inputfield;
-    public static System.Random random = new System.Random();
+
+    private static System.Random seedGen = new System.Random();
+    private static int seed = seedGen.Next();
+    public static System.Random random = new System.Random(seed);
 
     public static string RandomString(int length)
     {
@@ -150,6 +153,10 @@ public class Main : MonoBehaviour
     {
         string filename = inputfield.text;
 
+        System.IO.StreamWriter seedfile = new System.IO.StreamWriter(filename + "_seed.txt");
+        seedfile.WriteLine(seed);
+        seedfile.Close();
+
         System.IO.StreamWriter file1 = new System.IO.StreamWriter(filename + "_blobs.txt");
         foreach (GameObject blob in BlobManager.blobs)
         {
@@ -173,6 +180,11 @@ public class Main : MonoBehaviour
     public void LoadState()
     {
         string filename = inputfield.text;
+
+        System.IO.StreamReader seedfile = new System.IO.StreamReader(filename + "_seed.txt");
+        int seed = int.Parse(seedfile.ReadLine());
+        random = new System.Random(seed);
+        seedfile.Close();
 
         System.IO.StreamReader file1 = new System.IO.StreamReader(filename + "_blobs.txt");
         string textline = "";
