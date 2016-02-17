@@ -78,7 +78,7 @@ public class CameraMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.Mouse1) && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
+        if (Input.GetKey(KeyCode.Mouse0) && (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)))
         {
             if (FoodManager.foods.Count < FoodManager.maxFood)
             {

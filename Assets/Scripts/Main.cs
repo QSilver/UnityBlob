@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Linq;
 using Assets.Scripts;
+using UnityEngine.UI;
 
 public class Main : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class Main : MonoBehaviour
     public GameObject blob;
     public GameObject food;
     public GameObject gamearea;
+    public InputField inputfield;
     public static System.Random random = new System.Random();
 
     public static string RandomString(int length)
@@ -143,27 +145,45 @@ public class Main : MonoBehaviour
             population_patience.pointValues.Add(new Vector2(0, 0));
     }
 
-    public static void SaveState(string filename)
+    public void SaveState()
     {
-        /*
+        string filename = inputfield.text;
+
         System.IO.StreamWriter file1 = new System.IO.StreamWriter(filename + "_blobs.txt");
         foreach (GameObject blob in BlobManager.blobs)
         {
-            file1.WriteLine( blob.GetComponent<BlobLogic>().getID() + " " +
+            file1.WriteLine(blob.GetComponent<BlobLogic>().getID() + " " +
                             blob.GetComponent<BlobLogic>().getEnergy() + " " +
                             blob.transform.position.x + " " + blob.transform.position.y + " " +
+                            blob.GetComponent<BlobLogic>().getAngle() + " " +
                             blob.GetComponent<BlobDNA>().getDNA());
-        }*/
+        }
+        file1.Close();
 
         System.IO.StreamWriter file2 = new System.IO.StreamWriter(filename + "_food.txt");
-        foreach (GameObject food in FoodManager.foods)
+        foreach (GameObject f in FoodManager.foods)
         {
-            file2.WriteLine(food.transform.position.x + " " + food.transform.position.y);
+            file2.WriteLine(f.transform.position.x + " " + f.transform.position.y);
         }
+        file2.Close();
+        inputfield.text = "";
     }
 
-    public static void LoadState(string filename)
+    public void LoadState()
     {
+        string filename = inputfield.text;
 
+        System.IO.StreamReader file2 = new System.IO.StreamReader(filename + "_food.txt");
+        string textline = "";
+
+        do
+        {
+            textline = file2.ReadLine();
+            string[] linesplit = textline.Split(' ');
+            FoodManager.Place(food, float.Parse(linesplit[0]), float.Parse(linesplit[1]));
+        } while (file2.Peek() != -1);
+
+        file2.Close();
+        inputfield.text = "";
     }
 }

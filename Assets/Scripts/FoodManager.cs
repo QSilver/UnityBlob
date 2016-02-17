@@ -52,5 +52,11 @@ namespace Assets.Scripts
                 }
             }
         }
+
+        public static void Place(GameObject food, float x, float y)
+        {
+            GameObject clone = GameObject.Instantiate(food, new Vector3(x, y, 0), new Quaternion(0, 0, 0, 0)) as GameObject;
+            foods.Add(clone);
+        }
     }
 }

@@ -1,0 +1,72 @@
+\documentclass{l4proj}
+
+\newcommand{\comment}[1]{\marginpar{\footnotesize
+									\color{red}
+                                    \textsf{#1}}}
+
+\begin{document}
+
+\title{Blobs on a Plane}
+
+\author{George Popa}
+
+\date{\today}
+\maketitle
+\begin{abstract}
+
+The software is an evolutionary simulator, dealing with observations of mimicked natural evolutions. The scope of the project is to produce a system that can be used to study evolution in a limited environment where the user can intervene and change the parameters. Particular interest is placed on creature and group behaviour, and population dynamics.
+
+The project involves building a tool which allows visualisation of an environment and enables users to interact with various parameters in the environment. It is intended as an educational tool to allow users to better understand evolutionary dynamics. Creatures called “blobs” evolve in this simulated environment by having techniques used in Genetic Algorithms applied to their DNA. This DNA described their characteristics and behaviour.
+
+
+\end{abstract}
+
+\tableofcontents
+
+%==============================================================================
+
+\chapter{Introduction}
+\label{introduction}
+\input{introduction}
+
+%=============================================================================
+
+\chapter{Requirements}
+\label{requirements}
+\input{requirements}
+
+%=============================================================================
+
+\chapter{Design}
+\label{design}
+\input{design}
+
+%==============================================================================
+
+\chapter{Implementation}
+\label{implementation}
+\input{implementation}
+
+%==============================================================================
+
+\chapter{Evaluation}
+\label{evaluation}
+\input{evaluation}
+
+%==============================================================================
+
+ \chapter{Conclusion}
+\label{conclusion}
+\input{conclusion}
+
+%==============================================================================
+
+\bibliographystyle{plain}
+\bibliography{dissertation}
+
+\label{appendix}
+\input{appendix}
+
+%==============================================================================
+
+\end{document}

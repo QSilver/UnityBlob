@@ -292,4 +292,9 @@ public class BlobLogic : MonoBehaviour
     {
         return this.levytime;
     }
+
+    public float getAngle()
+    {
+        return this.angle;
+    }
 }
