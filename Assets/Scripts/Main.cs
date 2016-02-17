@@ -93,15 +93,16 @@ public class Main : MonoBehaviour
             if (started == 0)
             {
                 started = 1;
-                
-                for (int i = 1; i <= 10; i++)
+                if (BlobManager.blobs.Count == 0)
                 {
-                    GameObject clone = GameObject.Instantiate(blob, new Vector3(((float)Random.Range(-5000, 5000)) / 1000, ((float)Random.Range(-5000, 5000)) / 1000), new Quaternion(0, 0, 0, 0)) as GameObject;
-                    clone.AddComponent<BlobDNA>();
-                    clone.GetComponent<BlobDNA>().setDNA(DNAOperations.generate(DNAOperations.DNASIZE));
-                    BlobManager.blobs.Add(clone);
+                    for (int i = 1; i <= 10; i++)
+                    {
+                        GameObject clone = GameObject.Instantiate(blob, new Vector3(((float)Random.Range(-5000, 5000)) / 1000, ((float)Random.Range(-5000, 5000)) / 1000), new Quaternion(0, 0, 0, 0)) as GameObject;
+                        clone.AddComponent<BlobDNA>();
+                        clone.GetComponent<BlobDNA>().setDNA(DNAOperations.generate(DNAOperations.DNASIZE));
+                        BlobManager.blobs.Add(clone);
+                    }
                 }
-
                 FoodManager.Cluster();
             }
             FoodManager.Spawn(food);
@@ -173,14 +174,35 @@ public class Main : MonoBehaviour
     {
         string filename = inputfield.text;
 
-        System.IO.StreamReader file2 = new System.IO.StreamReader(filename + "_food.txt");
+        System.IO.StreamReader file1 = new System.IO.StreamReader(filename + "_blobs.txt");
         string textline = "";
 
         do
         {
+            textline = file1.ReadLine();
+            string[] linesplit;
+            try
+            {
+                linesplit = textline.Split(' ');
+                BlobManager.Place(blob, int.Parse(linesplit[0]), float.Parse(linesplit[1]), float.Parse(linesplit[2]), float.Parse(linesplit[3]), float.Parse(linesplit[4]), linesplit[5]);
+            }
+            catch (System.NullReferenceException e) {}
+        } while (file1.Peek() != -1);
+        file1.Close();
+
+        System.IO.StreamReader file2 = new System.IO.StreamReader(filename + "_food.txt");
+        textline = "";
+
+        do
+        {
             textline = file2.ReadLine();
-            string[] linesplit = textline.Split(' ');
-            FoodManager.Place(food, float.Parse(linesplit[0]), float.Parse(linesplit[1]));
+            string[] linesplit;
+            try
+            {
+                linesplit = textline.Split(' ');
+                FoodManager.Place(food, float.Parse(linesplit[0]), float.Parse(linesplit[1]));
+            }
+            catch (System.NullReferenceException e) {}
         } while (file2.Peek() != -1);
 
         file2.Close();

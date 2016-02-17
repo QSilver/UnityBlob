@@ -297,4 +297,13 @@ public class BlobLogic : MonoBehaviour
     {
         return this.angle;
     }
+
+    public void set(int id, float energy, float x, float y, float angle)
+    {
+        rb = blob.GetComponent<Rigidbody>();
+        rb.transform.position = new Vector3(x, y, 0);
+        this.energy = energy;
+        this.blobID = id;
+        this.angle = angle;
+    }
 }
