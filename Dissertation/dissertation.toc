@@ -1,43 +1,43 @@
 \contentsline {chapter}{\numberline {1}Introduction}{iii}
 \contentsline {section}{\numberline {1.1}Motivation}{iii}
-\contentsline {section}{\numberline {1.2}Backgroung}{iii}
+\contentsline {section}{\numberline {1.2}Background}{iii}
 \contentsline {subsection}{\numberline {1.2.1}Previous Work}{iii}
-\contentsline {subsection}{\numberline {1.2.2}Existing Apllications}{iii}
-\contentsline {section}{\numberline {1.3}Aims}{iii}
-\contentsline {section}{\numberline {1.4}Outline}{iii}
-\contentsline {chapter}{\numberline {2}Requirements}{iv}
-\contentsline {section}{\numberline {2.1}Initial Requirements}{iv}
-\contentsline {section}{\numberline {2.2}Requirements Gathering}{iv}
-\contentsline {section}{\numberline {2.3}Functional / Non-Functional}{iv}
-\contentsline {subsection}{\numberline {2.3.1}Functional Requirements}{iv}
-\contentsline {subsection}{\numberline {2.3.2}Non-Functional Requirements}{iv}
-\contentsline {chapter}{\numberline {3}Design}{v}
-\contentsline {section}{\numberline {3.1}Goals and Considerations}{v}
-\contentsline {section}{\numberline {3.2}User Interface}{v}
-\contentsline {subsection}{\numberline {3.2.1}User Controls}{v}
-\contentsline {subsection}{\numberline {3.2.2}Data Interface}{v}
-\contentsline {section}{\numberline {3.3}Application Design}{v}
-\contentsline {chapter}{\numberline {4}Implementation}{vi}
-\contentsline {section}{\numberline {4.1}Framework Choice}{vi}
-\contentsline {section}{\numberline {4.2}Overall Architecture}{vi}
-\contentsline {section}{\numberline {4.3}Main Logic}{vi}
-\contentsline {subsection}{\numberline {4.3.1}Simulator State}{vi}
-\contentsline {subsection}{\numberline {4.3.2}Update}{vi}
-\contentsline {subsection}{\numberline {4.3.3}Save}{vi}
-\contentsline {section}{\numberline {4.4}Blob Logic}{vi}
-\contentsline {subsection}{\numberline {4.4.1}Characteristics}{vi}
-\contentsline {subsection}{\numberline {4.4.2}DNA}{vi}
-\contentsline {subsection}{\numberline {4.4.3}Update}{vi}
-\contentsline {subsection}{\numberline {4.4.4}Movement}{vi}
-\contentsline {subsection}{\numberline {4.4.5}Reproduction}{vi}
-\contentsline {section}{\numberline {4.5}Deployment}{vi}
-\contentsline {chapter}{\numberline {5}Evaluation}{vii}
-\contentsline {section}{\numberline {5.1}Testing and Deployment}{vii}
-\contentsline {section}{\numberline {5.2}User Evaluation}{vii}
-\contentsline {subsection}{\numberline {5.2.1}Feedback Forms}{vii}
-\contentsline {subsection}{\numberline {5.2.2}Focus Group}{vii}
-\contentsline {chapter}{\numberline {6}Conclusion}{viii}
-\contentsline {section}{\numberline {6.1}Summary}{viii}
-\contentsline {section}{\numberline {6.2}Project Management}{viii}
-\contentsline {section}{\numberline {6.3}Future Work}{viii}
-\contentsline {section}{\numberline {6.4}Reflection}{viii}
+\contentsline {subsection}{\numberline {1.2.2}Existing Applications}{iv}
+\contentsline {section}{\numberline {1.3}Overview}{v}
+\contentsline {section}{\numberline {1.4}Dissertation Outline}{v}
+\contentsline {chapter}{\numberline {2}Requirements}{vi}
+\contentsline {section}{\numberline {2.1}Requirements Gathering Process}{vi}
+\contentsline {section}{\numberline {2.2}Functional / Non-Functional}{vi}
+\contentsline {subsection}{\numberline {2.2.1}Functional Requirements}{vi}
+\contentsline {subsection}{\numberline {2.2.2}Non-Functional Requirements}{vi}
+\contentsline {chapter}{\numberline {3}Design}{vii}
+\contentsline {section}{\numberline {3.1}Goals and Considerations}{vii}
+\contentsline {section}{\numberline {3.2}User Interface}{vii}
+\contentsline {subsection}{\numberline {3.2.1}User Controls}{vii}
+\contentsline {subsection}{\numberline {3.2.2}Data Interface}{vii}
+\contentsline {section}{\numberline {3.3}Application Design}{vii}
+\contentsline {chapter}{\numberline {4}Implementation}{viii}
+\contentsline {section}{\numberline {4.1}Framework Choice}{viii}
+\contentsline {section}{\numberline {4.2}Overall Architecture}{viii}
+\contentsline {section}{\numberline {4.3}Main Logic}{viii}
+\contentsline {subsection}{\numberline {4.3.1}Simulator State}{viii}
+\contentsline {subsection}{\numberline {4.3.2}Update}{viii}
+\contentsline {subsection}{\numberline {4.3.3}Save}{viii}
+\contentsline {section}{\numberline {4.4}Blob Logic}{viii}
+\contentsline {subsection}{\numberline {4.4.1}Characteristics}{viii}
+\contentsline {subsection}{\numberline {4.4.2}DNA}{viii}
+\contentsline {subsection}{\numberline {4.4.3}Update}{viii}
+\contentsline {subsection}{\numberline {4.4.4}Movement}{viii}
+\contentsline {subsection}{\numberline {4.4.5}Reproduction}{viii}
+\contentsline {section}{\numberline {4.5}Deployment}{viii}
+\contentsline {chapter}{\numberline {5}Evaluation}{ix}
+\contentsline {section}{\numberline {5.1}Testing}{ix}
+\contentsline {section}{\numberline {5.2}User Evaluation}{ix}
+\contentsline {subsection}{\numberline {5.2.1}Feedback Forms}{ix}
+\contentsline {subsection}{\numberline {5.2.2}Expert Opinion}{ix}
+\contentsline {section}{\numberline {5.3}Feedback Integration}{ix}
+\contentsline {chapter}{\numberline {6}Conclusion}{x}
+\contentsline {section}{\numberline {6.1}Summary}{x}
+\contentsline {section}{\numberline {6.2}Project Management}{x}
+\contentsline {section}{\numberline {6.3}Future Work}{x}
+\contentsline {section}{\numberline {6.4}Reflection}{x}

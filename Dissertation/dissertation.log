@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.10.19)  17 FEB 2016 02:13
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.10.19)  25 FEB 2016 11:15
 entering extended mode
 **dissertation.tex
 (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\dissertation.tex
@@ -216,61 +216,65 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
-)
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 11.
+
 [3
 
-]
+] <images/darwinbots.png, id=23, 301.125pt x 216.05719pt>
+File: images/darwinbots.png Graphic file (type png)
+
+<use images/darwinbots.png>
+Package pdftex.def Info: images/darwinbots.png used on input line 22.
+(pdftex.def)             Requested size: 301.12425pt x 216.05664pt.
+ [4 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/darwinb
+ots.png>]) [5]
 Chapter 2.
 (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\requirements.tex)
-[4
+[6
 
 ]
 Chapter 3.
 (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\design.tex)
-[5
+[7
 
 ]
 Chapter 4.
 
 (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\implementation.tex
-) [6
+) [8
 
 ]
 Chapter 5.
 (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\evaluation.tex)
-[7
+[9
 
 ]
 Chapter 6.
 (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\conclusion.tex)
 (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\dissertation.bbl
-[8
+[10
 
-]
-
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
-
-) (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\appendix.tex)
-[9
+]) (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\appendix.tex) [
+11
 
 ]
 (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\dissertation.aux) 
 ) 
 Here is how much of TeX's memory you used:
- 1849 strings out of 493921
- 27055 string characters out of 3144869
- 85435 words of memory out of 3000000
- 5121 multiletter control sequences out of 15000+200000
- 22776 words of font info for 46 fonts, out of 3000000 for 9000
+ 1860 strings out of 493921
+ 27246 string characters out of 3144869
+ 85441 words of memory out of 3000000
+ 5129 multiletter control sequences out of 15000+200000
+ 24460 words of font info for 48 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 34i,6n,23p,464b,172s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,7n,23p,1119b,222s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program
  Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86
-)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb>
-Output written on dissertation.pdf (11 pages, 58795 bytes).
+)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.
+9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on dissertation.pdf (13 pages, 85256 bytes).
 PDF statistics:
- 51 PDF objects out of 1000 (max. 8388607)
+ 65 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

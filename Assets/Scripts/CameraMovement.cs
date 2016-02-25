@@ -45,7 +45,9 @@ public class CameraMovement : MonoBehaviour
             Vector3 mp = GetMouse();
             foreach (GameObject b in BlobManager.blobs)
             {
-                float dist = (b.transform.position.x - mp.x) * (b.transform.position.x - mp.x) + (b.transform.position.y - mp.y) * (b.transform.position.y - mp.y);
+                float dist = mindist + 1;
+                if (b != null)
+                    dist = (b.transform.position.x - mp.x) * (b.transform.position.x - mp.x) + (b.transform.position.y - mp.y) * (b.transform.position.y - mp.y);
                 if (dist < mindist)
                 {
                     mindist = dist;

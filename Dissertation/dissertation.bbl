@@ -1,3 +1,15 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{lessin2013open}
+Dan Lessin, Don Fussell, and Risto Miikkulainen.
+\newblock Open-ended behavioral complexity for evolved virtual creatures.
+\newblock In {\em Proceedings of the 15th annual conference on Genetic and
+  evolutionary computation}, pages 335--342. ACM, 2013.
+
+\bibitem{sims1994evolving}
+Karl Sims.
+\newblock Evolving virtual creatures.
+\newblock In {\em Proceedings of the 21st annual conference on Computer
+  graphics and interactive techniques}, pages 15--22. ACM, 1994.
 
 \end{thebibliography}

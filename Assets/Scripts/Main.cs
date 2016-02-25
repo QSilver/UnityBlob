@@ -119,7 +119,8 @@ public class Main : MonoBehaviour
 
         float avgreprod = 0f;
         foreach (GameObject b in BlobManager.blobs)
-            avgreprod += b.GetComponent<BlobLogic>().getReprod();
+            if (b != null)
+                avgreprod += b.GetComponent<BlobLogic>().getReprod();
         if (BlobManager.blobs.Count != 0) avgreprod /= BlobManager.blobs.Count;
         else avgreprod = 0;
         population_reprod.pointValues.Add(new Vector2(0, avgreprod));
@@ -127,7 +128,8 @@ public class Main : MonoBehaviour
 
         float avgpati = 0f;
         foreach (GameObject b in BlobManager.blobs)
-            avgpati += b.GetComponent<BlobLogic>().getPatience();
+            if (b != null)
+                avgpati += b.GetComponent<BlobLogic>().getPatience();
         if (BlobManager.blobs.Count != 0) avgpati /= BlobManager.blobs.Count;
         else avgpati = 0;
         population_patience.pointValues.Add(new Vector2(0, avgpati));
@@ -175,6 +177,8 @@ public class Main : MonoBehaviour
         }
         file2.Close();
         inputfield.text = "";
+
+        JSONExport(filename);
     }
 
     public void LoadState()
@@ -219,5 +223,38 @@ public class Main : MonoBehaviour
 
         file2.Close();
         inputfield.text = "";
+    }
+
+    public void JSONExport(string filename)
+    {
+        System.IO.StreamWriter jsondump = new System.IO.StreamWriter(filename + ".json");
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+        sb.Append("{\n");
+
+        sb.Append("\t\"seed\": \""+seed+"\"\n");
+
+        foreach (GameObject blob in BlobManager.blobs)
+        {
+            sb.Append("\t\"blob\": {");
+            sb.Append(" \"id\": \"" + blob.GetComponent<BlobLogic>().getID() + "\",");
+            sb.Append(" \"energy\": \"" + blob.GetComponent<BlobLogic>().getEnergy() + "\",");
+            sb.Append(" \"x\": \"" + blob.transform.position.x + "\",");
+            sb.Append(" \"y\": \"" + blob.transform.position.y + "\",");
+            sb.Append(" \"angle\": \"" + blob.GetComponent<BlobLogic>().getAngle() + "\",");
+            sb.Append(" \"dna\": \"" + blob.GetComponent<BlobDNA>().getDNA() + "\"},\n");
+        }
+
+        foreach (GameObject f in FoodManager.foods)
+        {
+            sb.Append("\t\"food\": {");
+            sb.Append(" \"x\": \"" + f.transform.position.x + "\",");
+            sb.Append(" \"y\": \"" + f.transform.position.y + "\"},\n");
+        }
+
+        sb.Append("}\n");
+
+        jsondump.Write(sb.ToString());
+        jsondump.Close();
     }
 }

@@ -1,10 +1,8 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: dissertation.aux
 The style file: plain.bst
-I couldn't open database file dissertation.bib
----line 44 of file dissertation.aux
- : \bibdata{dissertation
- :                      }
-I'm skipping whatever remains of this command
-I found no \citation commands---while reading file dissertation.aux
-I found no database files---while reading file dissertation.aux
-(There were 3 error messages)
+Database file #1: dissertation.bib
+I was expecting a `,' or a `}'---line 20 of file dissertation.bib
+ :  author={Paul T Oliver}
+ :                        .,
+I'm skipping whatever remains of this entry
+(There was 1 error message)
