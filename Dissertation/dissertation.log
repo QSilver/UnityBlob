@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.10.19)  25 FEB 2016 11:15
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.10.19)  28 FEB 2016 14:18
 entering extended mode
 **dissertation.tex
 (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\dissertation.tex
@@ -106,20 +106,24 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@dimlist=\toks15
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.cfg")))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\url\url.sty"
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
 (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\dissertation.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 7.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 9.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -176,34 +180,31 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 File: images/CompSci_colour.pdf Graphic file (type pdf)
 
 <use images/CompSci_colour.pdf>
-Package pdftex.def Info: images/CompSci_colour.pdf used on input line 14.
+Package pdftex.def Info: images/CompSci_colour.pdf used on input line 16.
 (pdftex.def)             Requested size: 283.36508pt x -7.72174pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 14.
+(Font)              <12> on input line 16.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 14.
+(Font)              <8> on input line 16.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 14.
+(Font)              <6> on input line 16.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/QSilver/Desktop/
 UNI/Project/UnityBlob/Dissertation/images/CompSci_colour.pdf>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 15.
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ú in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ù in font ptmr7t!
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 17.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 21.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 21.
  [1]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 24.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 25.
 
 (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\dissertation.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 2.
-
 [1
 
 ])
@@ -211,70 +212,129 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [2]
 Chapter 1.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 28.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 29.
 (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\introduction.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 11.
-
+)
 [3
 
-] <images/darwinbots.png, id=23, 301.125pt x 216.05719pt>
+]
+Chapter 2.
+(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\background.tex
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 8.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 8.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 22.
+ [4
+
+]
+<images/crabvsarm.jpg, id=28, 200.75pt x 160.6pt>
+File: images/crabvsarm.jpg Graphic file (type jpg)
+ <use images/crabvsarm.jpg>
+Package pdftex.def Info: images/crabvsarm.jpg used on input line 31.
+(pdftex.def)             Requested size: 200.7495pt x 160.5996pt.
+
+<images/cirtualcreatures.png, id=29, 383.9946pt x 137.313pt>
+File: images/cirtualcreatures.png Graphic file (type png)
+
+<use images/cirtualcreatures.png>
+Package pdftex.def Info: images/cirtualcreatures.png used on input line 39.
+(pdftex.def)             Requested size: 383.99365pt x 137.31265pt.
+ [5 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/crabvsa
+rm.jpg>]
+<images/darwinbots.png, id=35, 301.125pt x 216.05719pt>
 File: images/darwinbots.png Graphic file (type png)
 
 <use images/darwinbots.png>
-Package pdftex.def Info: images/darwinbots.png used on input line 22.
+Package pdftex.def Info: images/darwinbots.png used on input line 52.
 (pdftex.def)             Requested size: 301.12425pt x 216.05664pt.
- [4 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/darwinb
-ots.png>]) [5]
-Chapter 2.
-(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\requirements.tex)
-[6
+ [6 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/cirtual
+creatures.png>]
+<images/guppies.png, id=40, 1097.60063pt x 758.08218pt>
+File: images/guppies.png Graphic file (type png)
 
-]
+<use images/guppies.png>
+Package pdftex.def Info: images/guppies.png used on input line 68.
+(pdftex.def)             Requested size: 329.28273pt x 227.4264pt.
+ [7 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/darwinb
+ots.png> <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/gu
+ppies.png>]
+<images/glidergun.jpg, id=46, 344.28625pt x 308.15125pt>
+File: images/glidergun.jpg Graphic file (type jpg)
+
+<use images/glidergun.jpg>
+Package pdftex.def Info: images/glidergun.jpg used on input line 77.
+(pdftex.def)             Requested size: 206.57333pt x 184.89217pt.
+) [8 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/glider
+gun.jpg>]
 Chapter 3.
-(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\design.tex)
-[7
-
-]
-Chapter 4.
-
-(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\implementation.tex
-) [8
-
-]
-Chapter 5.
-(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\evaluation.tex)
+(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\requirements.tex)
 [9
 
 ]
-Chapter 6.
-(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\conclusion.tex)
-(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\dissertation.bbl
+Chapter 4.
+(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\design.tex)
 [10
 
-]) (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\appendix.tex) [
-11
+]
+Chapter 5.
+
+(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\implementation.tex
+) [11
+
+]
+Chapter 6.
+(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\evaluation.tex)
+[12
+
+]
+Chapter 7.
+(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\conclusion.tex)
+(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\dissertation.bbl
+[13
+
+]
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ú in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ù in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no î in font ptmr7t!
+) (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\appendix.tex) [1
+4
 
 ]
 (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\dissertation.aux) 
 ) 
 Here is how much of TeX's memory you used:
- 1860 strings out of 493921
- 27246 string characters out of 3144869
- 85441 words of memory out of 3000000
- 5129 multiletter control sequences out of 15000+200000
- 24460 words of font info for 48 fonts, out of 3000000 for 9000
+ 2021 strings out of 493921
+ 29756 string characters out of 3144869
+ 86639 words of memory out of 3000000
+ 5270 multiletter control sequences out of 15000+200000
+ 24975 words of font info for 50 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 34i,7n,23p,1119b,222s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,7n,23p,956b,250s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program
- Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86
-)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.
-9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on dissertation.pdf (13 pages, 85256 bytes).
+ Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program F
+iles (x86)/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x86
+)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.
+9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
+e1/urw/times/utmri8a.pfb>
+Output written on dissertation.pdf (16 pages, 790111 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
+ 88 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

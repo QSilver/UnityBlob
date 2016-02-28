@@ -1,9 +1,11 @@
 \documentclass{l4proj}
 \setlength\parindent{0pt}
+\usepackage{url}
 \newcommand{\comment}[1]{\marginpar{\footnotesize
 									\color{red}
                                     \textsf{#1}}}
 
+\pagenumbering{arabic}
 \begin{document}
 
 \title{Blobs on a Plane}
@@ -14,10 +16,9 @@
 \maketitle
 \begin{abstract}
 
-The software is an evolutionary simulator, dealing with observations of mimicked natural evolutions. The scope of the project is to produce a system that can be used to study evolution in a limited environment where the user can intervene and change the parameters. Particular interest is placed on creature and group behaviour, and population dynamics.
+The project involves building an evolutionary simulator, dealing with observations of mimicked natural evolutions. It is intended as a teaching aid, with the user being able to intervene and change parameters in the simulation. Creatures called "blobs" evolve and adapt to the environment, allowing the user to study group behaviours and population dynamics.
 
-The project involves building a tool which allows visualisation of an environment and enables users to interact with various parameters in the environment. It is intended as an educational tool to allow users to better understand evolutionary dynamics. Creatures called “blobs” evolve in this simulated environment by having techniques used in Genetic Algorithms applied to their DNA. This DNA described their characteristics and behaviour.
-
+A on-line deployment is available: \url{http://unityblob.s3-website-eu-west-1.amazonaws.com}
 
 \end{abstract}
 
@@ -28,6 +29,12 @@ The project involves building a tool which allows visualisation of an environmen
 \chapter{Introduction}
 \label{introduction}
 \input{introduction}
+
+%=============================================================================
+
+\chapter{Background}
+\label{background}
+\input{background}
 
 %=============================================================================
 
@@ -60,7 +67,7 @@ The project involves building a tool which allows visualisation of an environmen
 \input{conclusion}
 
 %==============================================================================
-
+\raggedright
 \bibliographystyle{plain}
 \bibliography{dissertation}
 
