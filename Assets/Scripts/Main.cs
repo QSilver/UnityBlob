@@ -232,25 +232,37 @@ public class Main : MonoBehaviour
 
         sb.Append("{\n");
 
-        sb.Append("\t\"seed\": \""+seed+"\"\n");
+        sb.Append("\t\"seed\": \""+seed+"\",\n");
 
+        sb.Append("\t\"blobs\": [" + "\n");
         foreach (GameObject blob in BlobManager.blobs)
         {
-            sb.Append("\t\"blob\": {");
-            sb.Append(" \"id\": \"" + blob.GetComponent<BlobLogic>().getID() + "\",");
+            sb.Append("\t\t{\"id\": \"" + blob.GetComponent<BlobLogic>().getID() + "\",");
             sb.Append(" \"energy\": \"" + blob.GetComponent<BlobLogic>().getEnergy() + "\",");
             sb.Append(" \"x\": \"" + blob.transform.position.x + "\",");
             sb.Append(" \"y\": \"" + blob.transform.position.y + "\",");
             sb.Append(" \"angle\": \"" + blob.GetComponent<BlobLogic>().getAngle() + "\",");
             sb.Append(" \"dna\": \"" + blob.GetComponent<BlobDNA>().getDNA() + "\"},\n");
         }
+        if (sb.Length > 0)// && sb[sb.Length-3] == ',')
+        {
+            sb.Length -= 2;
+            sb.Append("\n");
+        }
+        sb.Append("\t]," + "\n");
 
+        sb.Append("\t\"foods\": [" + "\n");
         foreach (GameObject f in FoodManager.foods)
         {
-            sb.Append("\t\"food\": {");
-            sb.Append(" \"x\": \"" + f.transform.position.x + "\",");
+            sb.Append("\t\t{\"x\": \"" + f.transform.position.x + "\",");
             sb.Append(" \"y\": \"" + f.transform.position.y + "\"},\n");
         }
+        if (sb.Length > 0)// && sb[sb.Length - 1] == ',')
+        {
+            sb.Length -= 2;
+            sb.Append("\n");
+        }
+        sb.Append("\t]" + "\n");
 
         sb.Append("}\n");
 
