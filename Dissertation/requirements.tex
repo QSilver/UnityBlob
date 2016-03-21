@@ -1,4 +1,47 @@
 \section{Requirements Gathering Process}
+This section describes the requirements gathering process, as well as enumerates and details the requirements themselves. Since the project is self-defined, there were no requirements provided.
+Based on the initial project specification, a list of requirements was drafted. During the background research this list changed both shape and scope. It reached its final form after a video conference with Simon Hickinbotham \cite{simonyork}, a researcher in Evolving Systems. Simon's expertise proved vital in aligning the simulated behaviour to be more in line with real-life bacteria.
+
 \section{Functional / Non-Functional}
+The final functional requirements are presented in MoSCoW format \cite{brennan2009guide}. This was selected in order to complement the Agile style of development and to provide clear priorities. As such, critical deliverables are presented as ``Must", important features are labelled as ``Should", desirable requirements as ``Could", and least-critical items as ``Would".
 \subsection{Functional Requirements}
+
+\subsubsection{Must Have}
+\begin{itemize}
+	\item \textbf{Visualisation} \\The system should provide the user with a visualisation of the simulation.
+	\item \textbf{Parameter sliders} \\The user should be able to control parameters of the environment.
+	\item \textbf{Statistics} \\The user should be provided with details about the population.
+	\item \textbf{``Blob" behaviour} \\The system should be capable to simulate food finding behaviour.
+	\item \textbf{Evolve blobs} \\The system should evolve the blobs in some way.
+\end{itemize}
+
+\subsubsection{Should Have}
+\begin{itemize}
+	\item \textbf{Direct user interaction} \\The user should be able to actively interact with the simulation in real time. (Add food sources, add extra ``blobs")
+	\item \textbf{Reproduction} \\The system should be able to simulate some form of reproduction; either sexual or asexual.
+\end{itemize}
+
+\subsubsection{Could Have}
+\begin{itemize}
+	\item \textbf{Camera controls} \\The user should be able to move the camera around, as well as zoom in or out.
+	\item \textbf{Evolutionary parameters} \\The user should be able to interact with the parameters of the evolution itself.
+\end{itemize}
+
+\subsubsection{Would Have}
+\begin{itemize}
+	\item \textbf{Tree crossover} \\The evolution should include tree crossover for blob behaviour.
+	\item \textbf{``Blob" characteristics} \\The user should be able to tweak the characteristics of individual ``blobs".
+\end{itemize}
+
 \subsection{Non-Functional Requirements}
+Since the system's intended purpose is that of a teaching tool, the non-functional requirements are concerned mainly with usability and interactivity. While performance is not an immediate concern, the systems should be able to deal with a rapidly increasing population.
+
+\begin{itemize}
+	\item \textbf{Intuitiveness} \\The user interface should be easy to use and intuitive.
+	\item \textbf{Interactivity} \\The user should be able to interact with the simulation.
+	\item \textbf{Performance} \\The visualisation should be able to handle a sizeable population.
+	\item \textbf{Cross-Platform} \\The system should be able to run on a multitude of platforms.
+\end{itemize}
+
+\section{Summary}
+This chapter presented the requirements for the project. The next chapter will explain how the system was designed in order to match these requirements.

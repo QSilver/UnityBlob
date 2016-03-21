@@ -1,21 +1,22 @@
 \section{Motivation}
-While multiple systems implementing genetic algorithms are available (\ref{prevwork}), they tend to be obsolete, no longer supported, or generally intended as frameworks providing only the algorithms to be used in optimization. The project is intended as a light-weight educational utility, in order to provide insight into the dynamics of an evolving population under environmental conditions. The purpose of the simulation is to observe how average values of parameters change with respect to changes in the environment.
+While multiple systems implementing genetic algorithms are available, outlined in Section~\ref{prevwork}, they tend to be obsolete, no longer supported, or generally intended as frameworks providing only the algorithms to be used in optimization. Moreover, either due to underlying complexity or intended scope, these were unsuitable as teaching tools. In general, the focus also tends towards each individual in particular, rather than the population as a whole.
 
 \section{Overview}
+The project is intended as a light-weight educational utility, in order to provide insight into the dynamics of an evolving population under environmental conditions. The purpose of the simulation is to observe how average values of parameters among a population change with respect to events in the environment. From these changes, the overall direction of evolution can be inferred. By also allowing the user to directly interact with the population and its food sources, a higher level of responsiveness is achieved: the simulation adapts to deal with user input.
 
-
+The creatures being simulated, called ``blobs", are modelled to behave similar to bacterial lifeforms. For simplicity, the model is highly abstracted, disregarding the physical layer, such as the shape of an individual, particular cellular properties, or metabolism. Instead, focus is put on the behavioural side, and the genetics.
 
 \section{Dissertation Outline}
 The rest of the dissertation presents in detail the process of development of the evolutionary system, comically named ``Blobs on a Plane". The outline is as follows:
 
-Chapter 2 deals with some of the previous research carried out in the field, as well as other pre-existing applications.
+Chapter~\ref{background} deals with some of the previous research carried out in the field, as well as other pre-existing applications.
 
-Chapter 3 details the functional and non-functional requirements, as well as the requirements gathering process.
+Chapter~\ref{requirements} details the functional and non-functional requirements, as well as the requirements gathering process.
 
-Chapter 4 discusses various concerns about the design of the system and the user interface, any assumptions, and the design decisions made. Presented are also the initial design ideas and the final design.
+Chapter~\ref{design} discusses various concerns about the design of the system and the user interface, any assumptions, and the design decisions made. Presented are also the initial design ideas and the final design.
 
-Chapter 5 describes the implementation details, choice of framework, some of the evolutionary algorithms used, as well as the project deployment.
+Chapter~\ref{implementation} describes the implementation details, choice of framework, some of the evolutionary algorithms used, as well as the project deployment.
 
-Chapter 6 deals primarily with evaluation, from both users and experts, as well as internal testing.
+Chapter~\ref{evaluation} deals primarily with evaluation, from both users and experts, as well as internal testing.
 
-Chapter 7 provides a summary of the project, project management matters, and future work.
+Chapter~\ref{conclusion} provides a summary of the project, project management matters, and future work.

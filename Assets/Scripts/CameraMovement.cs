@@ -64,7 +64,7 @@ public class CameraMovement : MonoBehaviour
         }
         #endregion
 
-        if (Main.gameState == 1 && Input.GetKey(KeyCode.Mouse0) && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
+        if (Main.gameState == Main.GameState.Started && Input.GetKey(KeyCode.Mouse0) && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
         {
             Vector3 mp = GetMouse();
 

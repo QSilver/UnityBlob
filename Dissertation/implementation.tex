@@ -1,13 +1,316 @@
-\section{Framework Choice}
-\section{Overall Architecture}
-\section{Main Logic}
+This chapter will explain how the design was translated into a concrete system implementation. The chapter is split with respect to it's main logical components: the simulation logic, Section~\ref{mainlogic}; the logic behind placing and handling food, Section~\ref{foodlogic}; 
+
+\section{Main Logic} \label{mainlogic}
+Following the Model-View-Controller architectural pattern, the system implements multiple independent update loops in order to separate the simulation logic from the frame rate of the visualisation. Each of the individual update functions are called by the Unity engine at a frequency of 60 Hz. In order to provide the user with the option to slow down the simulation, a counter is implemented and checked in all updating classes. A global delay is set and acquired by each class individually to be used to synchronise their update; this is done in order to ensure consistency. The aforementioned counter, t, is measured in milliseconds and it records the time since the last frame was completed. This is given by ``deltaTime" and converted to milliseconds. An example of this synchronisation can be found below. The update will only be carried out if sufficient time has passed since the previous update.
+
+\begin{lstlisting}
+void Update()
+{
+    [...]
+    t += Time.deltaTime * 1000;
+    if (t > delay)
+    {
+        [...]
+        t = 0f;
+    }
+}
+\end{lstlisting}
+	
+Every Unity update tick, that is 60 times per second, the statistical graph of population statistics, explained in Section~\ref{sgraph}, is updated. This is separate from the simulation update time in order to provide a better resolution should the simulation be slowed down by the user. As such, the graph can present a constant stream of data between farther apart simulation updates, allowing for a better observation of small changes in the data series. From the perspective of the MVC, the graph can be considered part of the view, therefore it is updated separately from the model.
+	
+Data in the graph is extracted from the BlobManager class that contains a list of all the blobs in the simulation, each with their own subcomponents: BlobLogic and BlobDNA. The information presented is the blob population number, obtained simply by getting the size of the list; the reproduction threshold and patience are averaged across the entire population, giving the arithmetic mean. As this type of average is influenced by outliers, it was selected to render variations in the population's characteristics more obvious.
+The graph has three internal data series named: population\_data, population\_reprod, and population\_patience. Each of the values acquired above are added to the end of its respective list. The first element is deleted in order to create a real-time display. An example for the reproduction threshold can be found below.
+
+\begin{lstlisting}
+public void UpdateLineGraph()
+{
+    [...]
+    float avgreprod = 0f;
+    foreach (GameObject b in BlobManager.blobs)
+    {
+        if (b != null)
+        {
+            avgreprod += b.GetComponent<BlobLogic>().getReprod();
+        }
+    }
+    if (BlobManager.blobs.Count != 0)
+    {
+        avgreprod /= BlobManager.blobs.Count;
+    }
+    else
+    {
+        avgreprod = 0;
+    }
+    population_reprod.pointValues.Add(new Vector2(0, avgreprod));
+    population_reprod.pointValues.Remove(population_reprod.pointValues[0]);
+    [...]
+}
+\end{lstlisting}
+	
 \subsection{Simulator State}
-\subsection{Update}
-\subsection{Save}
+The simulation has three states, tracked by two internal variables. The default state is the initial one: an empty plane. Once the user presses the Start button, the simulation passes into the running state. The variables are updated accordingly; both ``gameState", which differentiates between run and pause, and ``started", which tracks the first click of the Start button. The pause button simply sets the variable tracking the running state back to the Paused state. Should, at any point, the Reset button be pressed, both blobs and food pellets are deleted and the simulation is returned to the initial state. Below can be found the detail of the functions implemented by the control buttons.
+
+\begin{lstlisting}
+public void StartPressed()
+{
+    gameState = GameState.Started;
+}
+	    
+public void PausePressed()
+{
+    gameState = GameState.Paused;
+}
+	    
+public void ResetPressed()
+{
+    gameState = GameState.Paused;
+    started = false;
+    ResetLineGraph();
+    BlobManager.blobs.Clear();
+    FoodManager.foods.Clear();
+    	
+    timestamp = 0; BlobLogic.ID = 0;	
+
+    var toClear = GameObject.FindGameObjectsWithTag("Blob");
+    for (int i = 0; i < toClear.Length; i++)
+        Destroy(toClear[i]);
+
+    toClear = GameObject.FindGameObjectsWithTag("Food");
+    for (int i = 0; i < toClear.Length; i++)
+        Destroy(toClear[i]);
+}
+\end{lstlisting}
+
+\subsection{Save/Load}	
+The current state of the system can also be stored on disk, to be imported back into the simulation at a later date. This is done via the use of three dump .txt files: one for the random seed, one for the blobs and their parameters (ID, energy, position, direction of movement, and DNA), and one for the food pellets, for which only the position is stored. To note is that the same file loaded into simulations running on two different machines may behave differently due to the inherent stochastic nature of the algorithms used.
+The simulation state is also output as a JSON file in order to support a more standardised output. JSON was chosen because it is language-independent and can be imported in a multitude of external applications.
+
+\section{Food Logic} \label{foodlogic}
+The food pellets are stored inside a list in the FoodManager class; this also contains parameters such as the amount of energy a pellet provides. In order to impose an artificial cap to the population, the maximum food is limited to 500 units.
+
+\subsection{Clustering}
+Rather than being randomly scattered on the plane, food is grouped into clusters. A cluster is a (coordinate, time-stamp) pair indicating where food may spawn. In order to ensure variation in the food density, clusters are uniformly distributed. A number of clusters are created and scattered on the plane, each with its own lifetime, varying between 60 and 120 simulation ticks. On every simulation tick, the cluster returns its state, either true or false, depending on the time elapsed since the cluster was created. The FoodManager then checks whether clusters have expired and replaces the inactive ones.
+
+\begin{lstlisting}
+for (int i = 0; i < foodclusternum; i++)
+{
+    if (clusters[i].UpdateTimer() == false)
+    {
+        clusters.Remove(clusters[i]);
+        clusters.Add(new Cluster());
+    }
+}
+\end{lstlisting}
+
+\subsection{Food Placement}
+If the current number of food pellets is smaller than the maximum, food is allowed to spawn, with respect to the same delay mechanic previously explained in Section~\ref{mainlogic}. Once a pre-existing food cluster is acquired, a food pellet is created using Unity's Instantiate method and placed at a random position around the centre of the cluster. This method takes as parameters: a GameObject (in this case, the base object), a three-dimensional Vector pointing towards a position in space, and a Quaternion indicating rotation. A Quaternion can be interpreted mathematically as the quotient of two vectors, as defined by its inventor, William Rowan Hamilton~\cite{hamilton1866elements}. The food pellet is then added to the list contained in the manager class. Below, the algorithm for spawning can be observed.
+
+\begin{lstlisting}	
+t += Time.deltaTime * 1000;
+if (t > spawnspeed && foods.Count < maxFood)
+{
+    // get random cluster
+    int cluster = Main.random.Next(0, foodclusternum);
+    // aquire X and Y of cluster
+    // add random to make it off centre
+    float xpos = clusters[cluster].getx() + (((float)Main.random.NextDouble() - 0.5f) * foodSpawnDiameter);
+    float ypos = clusters[cluster].gety() + (((float)Main.random.NextDouble() - 0.5f) * foodSpawnDiameter);
+    // create food pellet
+    GameObject clone = GameObject.Instantiate(food, new Vector3(xpos, ypos), new Quaternion(0, 0, 0, 0)) as GameObject;
+    foods.Add(clone);
+    t = 0f;
+}
+\end{lstlisting}
+	
 \section{Blob Logic}
-\subsection{Characteristics}
-\subsection{DNA}
+Blobs are the primary actors inside the simulation. They are stored in a list in the BlobManager class. A blob GameObject encapsulates two other classes, specifically BlobLogic and BlobDNA. While the latter is only a wrapper class which contains the DNA string of a particular individual, the former contains most of the interaction logic and the parameters. The function run when a blob GameObject is instantiated is seen below.
+	
+\begin{lstlisting}
+void Start ()
+{
+    // load Unity components
+    rb = blob.GetComponent<Rigidbody>();
+    audioSource = blob.GetComponent<AudioSource>();
+
+    DNAaux = 0; // current position in DNA string
+    // levytime = first DNALEVYTIME bits
+    this.levytime = (System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring( DNAaux, DNAOperations.DNALEVYTIME), 2));
+    DNAaux += DNAOperations.DNALEVYTIME;
+    // toReproduce = next DNAREPROD bits
+    this.toReproduce = ((float)System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring( DNAaux, DNAOperations.DNAREPROD), 2)) + 100f;
+    DNAaux += DNAOperations.DNAREPROD;
+
+    this.blobID = ID++;
+
+    // switch audioclip
+    audioSource.clip = drop;
+    if (Main.hasSound)
+    {
+        audioSource.Play();
+    }
+
+    for (int i = 0; i <= levythreshold; i++)
+    {
+        ate.Add(Main.globaltimestamp);
+    }
+}
+\end{lstlisting}
+	
+Inside BlobLogic, during its initialisation, a blob's AudioSource and Rigidbody components are acquired. Due to a technical limitation that only allows the mapping on one sound to each object, a swapping technique is used in order to utilise multiple sound files. The Rigidbody stands as the ``physical" body of the blob; it is used in movement and collision detection. At the same time, a blob's characteristics are extracted from its DNA string. Finally, a blob is forced to perform a localised search for a number of ticks determined by his genome. After that, it will perform a L\'evy walk. The movement of blobs is explained in more detail in Section~\ref{moveme}.
+
+\subsection{DNA Encoding}
+The DNA string is a 16-bit number encoding two intrinsic characteristics used in a blob's behavioural algorithm. The upper eight bits encode the ``patience", that is the time required to pass since a blob last ate until it stop searching locally for food. The lower eight bits encode the ``reproduction threshold", which specifies the energy required for a blob to reproduce. A constant is added to this number in order to prevent destructive mutations. The reproductive process is detailed in Section~\ref{reprod}.
+	
 \subsection{Update}
-\subsection{Movement}
-\subsection{Reproduction}
+During a simulation tick, all blobs execute their Update method. As Unity is a game engine, the default Colliders implement physically-modelled collision mechanics; this involves treating blobs as solid physical objects. Due to the fact that the prevention of overlap between blobs can propel them in unwanted directions, the blob's rotation is set to the identity Quaternion and the velocity and angular velocity to the zero vector. In order to enforce the initial conditions of the simulation, the Z-component of a blob's position is also set to 0.
+
+\begin{lstlisting}
+rb.rotation = Quaternion.identity;
+rb.velocity = Vector3.zero;
+rb.angularVelocity = Vector3.zero;
+rb.transform.position = new Vector3(rb.transform.position.x, rb.transform.position.y, 0);
+\end{lstlisting}
+
+Subsequently, the blob's size is determined by its current energy level, and the blue channel of its colour by its patience. This visual display of state allows the user to rapidly identify a blob's current situation.
+	
+\begin{lstlisting}
+this.GetComponentInChildren<SpriteRenderer>().color = new Color(0, 0, ((float)(levytime + colourfix)) / 255, 1);
+float blobsize = (this.energy + 50) / 150;
+\end{lstlisting}
+
+The main control loop for a blob's behaviour is as follows: if the simulation is running and enough time has passed since the previous tick, move and lose some energy; if the current energy if higher than the reproduction threshold, reproduce; if the current energy level is negative, starve. The code can be seen below.
+
+\begin{lstlisting}
+if (Main.gameState == Main.GameState.Started)
+{
+    delay = BlobManager.blobspeed;
+    t += Time.deltaTime * 1000;
+    
+    if (t > delay)
+    {
+        Move();
+        t = 0f;
+        energy -= Main.hostility;
+    }
+    
+    if (this.energy > toReproduce)
+    {
+        Reproduce();
+    }
+    
+    if (this.energy < 0f)
+    {
+        Starve();
+    }
+}
+		
+void Starve()
+{
+    Destroy(this.gameObject);
+    BlobManager.blobs.Remove(this.gameObject);
+    Destroy(this);
+}
+\end{lstlisting}
+
+\subsection{Movement} \label{moveme}
+As the plane is bounded, blobs automatically turn around should they encounter an edge. As opposed to a toroidal grid, blob movements are easier to track on a bounded plane. Since the return angle is random, it is possible for a blob to actually ``fall off" the plane.
+
+\begin{lstlisting}
+float turn = FoodManager.foodSpawnSize / 2;
+if (rb.transform.position.x <= -turn || rb.transform.position.x >= turn || rb.transform.position.y <= -turn || rb.transform.position.y >= turn)
+{
+    angle = angle - Mathf.PI - Mathf.PI * (float)(Main.random.NextDouble() - 0.5);
+}
+\end{lstlisting}	
+	
+After the initial check, the method LevyUpdate is called, which updates a list containing timestamps encoding the event of a blob eating food. Only the latest few are stored.
+
+\begin{lstlisting}
+void LevyUpdate()
+{
+    for (int i = 0; i < ate.Count; i++)
+        if (ate[i] < Main.globaltimestamp - levytime)
+	        ate.Remove(ate[i]);
+}
+\end{lstlisting}
+
+If at any point the list is empty, the blob performs a L\'evy walk in search for a new area with higher food density. This type of move is performed by choosing a random angle and heading in that direction until food is encountered. A check variable, isLevy, is used to ensure a blob does not start another L\'evy walk. If sufficient food has been consumed recently, a blob will just float in the local area; this is implemented in RandomMove.
+
+\begin{lstlisting}
+if (ate.Count < levythreshold)
+{
+    if (isLevy == false) // if not already in Levy
+    {
+        // pick random direction
+        angle = Random.Range(0, 361) * Mathf.PI / 180;
+        isLevy = true;
+    }
+    // move the direction set by "angle"
+    rb.transform.position += new Vector3(speed * Mathf.Cos(angle) / 10, speed * Mathf.Sin(angle) / 10);
+}
+else
+{
+    // should not levy
+    isLevy = false;
+    RandomMove();
+    // float around in the local area
+}
+\end{lstlisting}
+
+\subsection{Eating}
+Blobs eat by colliding into food. The pellet is deleted, a sound is played, and energy is added to the colliding blob. The blob also records the timestamps of when it has eaten recently.
+
+\begin{lstlisting}
+void OnTriggerEnter(Collider other)
+{
+    if (other.tag == "Food")
+    {
+        Eat();
+        Destroy(other.gameObject);
+        FoodManager.foods.Remove(other.gameObject);
+        Destroy(other);
+    }
+}
+
+void Eat()
+{
+    audioSource.clip = chomp;
+    if (Main.hasSound)
+    {
+        audioSource.Play();
+    }
+    this.energy += FoodManager.foodEnergy;
+    ate.Add(Main.globaltimestamp);
+}
+\end{lstlisting}
+
+\subsection{Reproduction} \label{reprod}
+Blob reproduction is done asexually in order to reduce the behavioural complexity of having to find a partner. When the energy reaches the reproduction threshold, a blob enters a reproductory state. During this period, two child blobs are instantiated with their parent's DNA, and with half of the parent's energy, in order to mimic cellular division. Each child is added to the list of blobs in BlobManager, and the parent is destroyed. The Reproduce method can be found below.
+
+\begin{lstlisting}
+void Reproduce()
+{
+    this.state = 2;
+    GameObject child1 = GameObject.Instantiate(blob, blob.transform.position, blob.transform.rotation) as GameObject;
+    child1.AddComponent<BlobDNA>();
+    child1.GetComponent<BlobDNA>().setDNA(DNAOperations.mutate( blob.GetComponent<BlobDNA>().getDNA()));
+    child1.GetComponent<BlobLogic>().energy = this.energy / 2;
+    BlobManager.blobs.Add(child1);
+    	
+    GameObject child2 = GameObject.Instantiate(blob, blob.transform.position, blob.transform.rotation) as GameObject;
+    child2.AddComponent<BlobDNA>();
+    child2.GetComponent<BlobDNA>().setDNA(DNAOperations.mutate( blob.GetComponent<BlobDNA>().getDNA()));
+    child2.GetComponent<BlobLogic>().energy = this.energy / 2;
+    BlobManager.blobs.Add(child2);
+    	
+    Destroy(blob.gameObject);
+    BlobManager.blobs.Remove(blob.gameObject);
+    Destroy(blob);
+}
+\end{lstlisting}
+
 \section{Deployment}
+The system can be built through the Unity Engine to run on a multitude of platforms ranging from Windows, Linux, and MacOS, as a standalone application; to web browsers through the Unity Web Player plug-in. To note is that the Web Player is unable to run in Google Chrome, as support was dropped with version 39 of Chrome. A web-based deployment is temporarily available on-line through Amazon Web Services (AWS) at \url{https://s3-eu-west-1.amazonaws.com/ui-v3/webtest.html}.
+
+\section{Summary}
+This chapter detailed the implementation of the system, together with snippets of code to assist in the explanation. The next Chapter deals with the evaluation of the system and the feedback received.

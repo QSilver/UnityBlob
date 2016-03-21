@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.10.19)  29 FEB 2016 02:12
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.10.19)  21 MAR 2016 12:57
 entering extended mode
 **dissertation.tex
 (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\dissertation.tex
@@ -106,41 +106,203 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@dimlist=\toks15
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.cfg")))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tocbibind\tocbibind.sty"
+Package: tocbibind 2010/10/13 v1.5k extra ToC listings
+Package tocbibind Info: The document has chapter divisions on input line 50.
+
+
+Package tocbibind Note: Using chapter style headings, unless overridden.
+
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
+Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+Package: hobsub-hyperref 2012/04/25 v1.12 Bundle oberdiek, subset hyperref (HO)
+
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+Package: hobsub-generic 2012/04/25 v1.12 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/04/25 v1.12 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
+)
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2011/06/24 v1.1 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
+Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+)
+\@linkdim=\dimen113
+\Hy@linkcounter=\count95
+\Hy@pagecounter=\count96
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
+File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count97
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4443.
+Package hyperref Info: Link nesting OFF on input line 4448.
+Package hyperref Info: Hyper index ON on input line 4451.
+Package hyperref Info: Plain pages OFF on input line 4458.
+Package hyperref Info: Backreferencing OFF on input line 4463.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4688.
+\c@Hy@tempcnt=\count98
+
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\url\url.sty"
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
+LaTeX Info: Redefining \url on input line 5041.
+\XeTeXLinkMargin=\dimen114
+\Fld@menulength=\count99
+\Field@Width=\dimen115
+\Fld@charsize=\dimen116
+Package hyperref Info: Hyper figures OFF on input line 6295.
+Package hyperref Info: Link nesting OFF on input line 6300.
+Package hyperref Info: Hyper index ON on input line 6303.
+Package hyperref Info: backreferencing OFF on input line 6310.
+Package hyperref Info: Link coloring OFF on input line 6315.
+Package hyperref Info: Link coloring with OCG OFF on input line 6320.
+Package hyperref Info: PDF/A mode OFF on input line 6325.
+LaTeX Info: Redefining \ref on input line 6365.
+LaTeX Info: Redefining \pageref on input line 6369.
+\Hy@abspage=\count100
+\c@Item=\count101
+\c@Hfootnote=\count102
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
+\Fld@listcount=\count103
+\c@bookmark@seq@number=\count104
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip43
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks16
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.sty"
+\lst@mode=\count105
+\lst@gtempboxa=\box26
+\lst@token=\toks17
+\lst@length=\count106
+\lst@currlwidth=\dimen117
+\lst@column=\count107
+\lst@pos=\count108
+\lst@lostspace=\dimen118
+\lst@width=\dimen119
+\lst@newlines=\count109
+\lst@lineno=\count110
+\lst@maxwidth=\dimen120
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count111
+\lst@skipnumbers=\count112
+\lst@framebox=\box27
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
 (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\dissertation.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 40.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count95
-\scratchdimen=\dimen113
-\scratchbox=\box26
-\nofMPsegments=\count96
-\nofMParguments=\count97
-\everyMPshowfont=\toks16
-\MPscratchCnt=\count98
-\MPscratchDim=\dimen114
-\MPnumerator=\count99
-\makeMPintoPDFobject=\count100
-\everyMPtoPDFconversion=\toks17
+\scratchcounter=\count113
+\scratchdimen=\dimen121
+\scratchbox=\box28
+\nofMPsegments=\count114
+\nofMParguments=\count115
+\everyMPshowfont=\toks18
+\MPscratchCnt=\count116
+\MPscratchDim=\dimen122
+\MPnumerator=\count117
+\makeMPintoPDFobject=\count118
+\everyMPtoPDFconversion=\toks19
 )
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -176,130 +338,434 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<images/CompSci_colour.pdf, id=1, 340.27126pt x 49.18375pt>
+\AtBeginShipoutBox=\box29
+Package hyperref Info: Link coloring OFF on input line 40.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count119
+)
+LaTeX Info: Redefining \ref on input line 40.
+LaTeX Info: Redefining \pageref on input line 40.
+LaTeX Info: Redefining \nameref on input line 40.
+
+(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\dissertation.out)
+(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\dissertation.out)
+\@outlinefile=\write3
+\c@lstlisting=\count120
+
+<images/CompSci_colour.pdf, id=243, 340.27126pt x 49.18375pt>
 File: images/CompSci_colour.pdf Graphic file (type pdf)
 
 <use images/CompSci_colour.pdf>
-Package pdftex.def Info: images/CompSci_colour.pdf used on input line 16.
+Package pdftex.def Info: images/CompSci_colour.pdf used on input line 48.
 (pdftex.def)             Requested size: 283.36508pt x -7.72174pt.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 16.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 16.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 16.
- [1
+LaTeX Font Info:    Try loading font information for U+msa on input line 48.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 48.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/QSilver/Desktop/
 UNI/Project/UnityBlob/Dissertation/images/CompSci_colour.pdf>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 17.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 21.
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 48.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 52.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 21.
- [1]
+)pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.54 \end{abstract}
+                    [1]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 25.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 56.
 
-(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\dissertation.toc
-[1
+(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\dissertation.tocpd
+fTeX warning (ext4): destination with the same identifier (name{page.1}) has be
+en already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.30 ...Framework selection}{15}{subsection.4.2.2}
+                                                   [1
 
-])
-\tf@toc=\write3
- [2]
+] [2])
+\tf@toc=\write4
+ [3]
 Chapter 1.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 29.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 60.
 (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\introduction.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
-)
-[3
 
-]
+[4
+
+]) [5]
 Chapter 2.
 (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\background.tex
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 8.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 6.
+
+<images/evo.png, id=354, 645.41125pt x 602.25pt>
+File: images/evo.png Graphic file (type png)
+ <use images/evo.png>
+Package pdftex.def Info: images/evo.png used on input line 13.
+(pdftex.def)             Requested size: 225.89732pt x 210.79065pt.
+ [6
+
+]
+<images/crabvsarm.jpg, id=369, 200.75pt x 160.6pt>
+File: images/crabvsarm.jpg Graphic file (type jpg)
+ <use images/crabvsarm.jpg>
+Package pdftex.def Info: images/crabvsarm.jpg used on input line 24.
+(pdftex.def)             Requested size: 200.7495pt x 160.5996pt.
+
+<images/cirtualcreatures.png, id=372, 383.9946pt x 137.313pt>
+File: images/cirtualcreatures.png Graphic file (type png)
+
+<use images/cirtualcreatures.png>
+Package pdftex.def Info: images/cirtualcreatures.png used on input line 32.
+(pdftex.def)             Requested size: 383.99365pt x 137.31265pt.
+ [7 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/evo.png
+> <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/crabvsarm
+.jpg>]
+<images/darwinbots.png, id=384, 301.125pt x 216.05719pt>
+File: images/darwinbots.png Graphic file (type png)
+
+<use images/darwinbots.png>
+Package pdftex.def Info: images/darwinbots.png used on input line 45.
+(pdftex.def)             Requested size: 301.12425pt x 216.05664pt.
+ [8 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/cirtual
+creatures.png>]
+<images/guppies.png, id=397, 1097.60063pt x 758.08218pt>
+File: images/guppies.png Graphic file (type png)
+
+<use images/guppies.png>
+Package pdftex.def Info: images/guppies.png used on input line 59.
+(pdftex.def)             Requested size: 329.28273pt x 227.4264pt.
+
+<images/glidergun.jpg, id=400, 344.28625pt x 308.15125pt>
+File: images/glidergun.jpg Graphic file (type jpg)
+
+<use images/glidergun.jpg>
+Package pdftex.def Info: images/glidergun.jpg used on input line 71.
+(pdftex.def)             Requested size: 206.57333pt x 184.89217pt.
+) [9 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/darwin
+bots.png>] [10 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/ima
+ges/guppies.png> <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/i
+mages/glidergun.jpg>]
+Chapter 3.
+(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\requirements.tex
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 11.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 8.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 22.
- [4
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 11.
+ [11
 
-]
-<images/crabvsarm.jpg, id=28, 200.75pt x 160.6pt>
-File: images/crabvsarm.jpg Graphic file (type jpg)
- <use images/crabvsarm.jpg>
-Package pdftex.def Info: images/crabvsarm.jpg used on input line 31.
-(pdftex.def)             Requested size: 200.7495pt x 160.5996pt.
-
-<images/cirtualcreatures.png, id=29, 383.9946pt x 137.313pt>
-File: images/cirtualcreatures.png Graphic file (type png)
-
-<use images/cirtualcreatures.png>
-Package pdftex.def Info: images/cirtualcreatures.png used on input line 39.
-(pdftex.def)             Requested size: 383.99365pt x 137.31265pt.
- [5 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/crabvsa
-rm.jpg>]
-<images/darwinbots.png, id=35, 301.125pt x 216.05719pt>
-File: images/darwinbots.png Graphic file (type png)
-
-<use images/darwinbots.png>
-Package pdftex.def Info: images/darwinbots.png used on input line 52.
-(pdftex.def)             Requested size: 301.12425pt x 216.05664pt.
- [6 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/cirtual
-creatures.png>]
-<images/guppies.png, id=40, 1097.60063pt x 758.08218pt>
-File: images/guppies.png Graphic file (type png)
-
-<use images/guppies.png>
-Package pdftex.def Info: images/guppies.png used on input line 68.
-(pdftex.def)             Requested size: 329.28273pt x 227.4264pt.
- [7 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/darwinb
-ots.png> <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/gu
-ppies.png>]
-<images/glidergun.jpg, id=46, 344.28625pt x 308.15125pt>
-File: images/glidergun.jpg Graphic file (type jpg)
-
-<use images/glidergun.jpg>
-Package pdftex.def Info: images/glidergun.jpg used on input line 77.
-(pdftex.def)             Requested size: 206.57333pt x 184.89217pt.
-) [8 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/glider
-gun.jpg>]
-Chapter 3.
-(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\requirements.tex)
-[9
-
-]
+]) [12]
 Chapter 4.
-(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\design.tex)
-[10
+(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\design.tex
+[13
 
-]
+] <images/initial2.png, id=450, 815.29594pt x 413.29407pt>
+File: images/initial2.png Graphic file (type png)
+
+<use images/initial2.png>
+Package pdftex.def Info: images/initial2.png used on input line 30.
+(pdftex.def)             Requested size: 277.19696pt x 140.51811pt.
+
+Overfull \hbox (80.9905pt too wide) in paragraph at lines 30--31
+[][] 
+ []
+
+<images/initial3.jpg, id=451, 3276.24pt x 2457.18pt>
+File: images/initial3.jpg Graphic file (type jpg)
+ <use images/initial3.jpg>
+Package pdftex.def Info: images/initial3.jpg used on input line 35.
+(pdftex.def)             Requested size: 229.36023pt x 172.02017pt.
+
+Overfull \hbox (8.62608pt too wide) in paragraph at lines 35--36
+[][] 
+ []
+
+[14 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/initial
+2.png> <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/init
+ial3.jpg>] <images/unityfinal.png, id=467, 1445.4pt x 733.99219pt>
+File: images/unityfinal.png Graphic file (type png)
+
+<use images/unityfinal.png>
+Package pdftex.def Info: images/unityfinal.png used on input line 69.
+(pdftex.def)             Requested size: 505.89758pt x 256.90111pt.
+
+Overfull \hbox (15.37392pt too wide) in paragraph at lines 69--70
+ [][] 
+ []
+
+[15 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/unityfi
+nal.png>] <images/mvc.png, id=480, 560.8453pt x 472.76625pt>
+File: images/mvc.png Graphic file (type png)
+
+<use images/mvc.png>
+Package pdftex.def Info: images/mvc.png used on input line 79.
+(pdftex.def)             Requested size: 336.50978pt x 283.66193pt.
+ <images/mmodel.png, id=481, 584.1825pt x 488.57532pt>
+File: images/mmodel.png Graphic file (type png)
+
+<use images/mmodel.png>
+Package pdftex.def Info: images/mmodel.png used on input line 85.
+(pdftex.def)             Requested size: 292.09053pt x 244.28706pt.
+
+<images/testinterface2.jpg, id=486, 1088.065pt x 686.565pt>
+File: images/testinterface2.jpg Graphic file (type jpg)
+
+<use images/testinterface2.jpg>
+Package pdftex.def Info: images/testinterface2.jpg used on input line 99.
+(pdftex.def)             Requested size: 261.14093pt x 164.77896pt.
+
+Overfull \hbox (40.40678pt too wide) in paragraph at lines 99--100
+[][] 
+ []
+
+<images/testinterface.jpg, id=487, 756.8275pt x 612.2875pt>
+File: images/testinterface.jpg Graphic file (type jpg)
+
+<use images/testinterface.jpg>
+Package pdftex.def Info: images/testinterface.jpg used on input line 104.
+(pdftex.def)             Requested size: 204.34615pt x 165.31982pt.
+ [16 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/mvc.pn
+g>]
+<images/uitest.png, id=497, 855.195pt x 522.45187pt>
+File: images/uitest.png Graphic file (type png)
+ <use images/uitest.png>
+Package pdftex.def Info: images/uitest.png used on input line 113.
+(pdftex.def)             Requested size: 384.8342pt x 235.10117pt.
+
+<images/unitypart.png, id=499, 1261.71375pt x 776.9025pt>
+File: images/unitypart.png Graphic file (type png)
+
+<use images/unitypart.png>
+Package pdftex.def Info: images/unitypart.png used on input line 121.
+(pdftex.def)             Requested size: 378.51704pt x 233.07254pt.
+
+<images/finalui.png, id=501, 1205.2528pt x 697.8572pt>
+File: images/finalui.png Graphic file (type png)
+
+<use images/finalui.png>
+Package pdftex.def Info: images/finalui.png used on input line 129.
+(pdftex.def)             Requested size: 379.65665pt x 219.82617pt.
+ [17 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/mmodel
+.png> <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/testi
+nterface2.jpg> <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/ima
+ges/testinterface.jpg>]
+<images/graph.png, id=515, 289.08pt x 219.82124pt>
+File: images/graph.png Graphic file (type png)
+ <use images/graph.png>
+Package pdftex.def Info: images/graph.png used on input line 139.
+(pdftex.def)             Requested size: 245.71915pt x 186.84892pt.
+
+[18 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/uitest.
+png> <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/unityp
+art.png>] <images/fsm.png, id=527, 803.25093pt x 193.47281pt>
+File: images/fsm.png Graphic file (type png)
+
+<use images/fsm.png>
+Package pdftex.def Info: images/fsm.png used on input line 151.
+(pdftex.def)             Requested size: 522.10692pt x 125.75583pt.
+
+Overfull \hbox (31.58325pt too wide) in paragraph at lines 151--152
+ [][] 
+ []
+
+) [19 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/final
+ui.png> <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/gra
+ph.png>] [20 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/image
+s/fsm.png>]
 Chapter 5.
 
 (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\implementation.tex
-) [11
+[21
 
-]
+] [22] [23]
+Overfull \hbox (33.48146pt too wide) in paragraph at lines 140--141
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[24] [25] [26] [27]) [28]
 Chapter 6.
-(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\evaluation.tex)
-[12
+(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\evaluation.tex
+<images/test1.png, id=815, 685.8122pt x 683.55376pt>
+File: images/test1.png Graphic file (type png)
+ <use images/test1.png>
+Package pdftex.def Info: images/test1.png used on input line 6.
+(pdftex.def)             Requested size: 253.74654pt x 252.91093pt.
 
-]
+Overfull \hbox (13.38725pt too wide) in paragraph at lines 6--7
+[][] 
+ []
+
+<images/test2.png, id=816, 684.30656pt x 685.05937pt>
+File: images/test2.png Graphic file (type png)
+ <use images/test2.png>
+Package pdftex.def Info: images/test2.png used on input line 10.
+(pdftex.def)             Requested size: 253.18945pt x 253.46799pt.
+
+Overfull \hbox (7.92763pt too wide) in paragraph at lines 10--11
+[][] 
+ []
+
+[29
+
+ <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/test1.png>
+ <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/test2.png>
+] <images/exp1.png, id=826, 349.305pt x 220.57407pt>
+File: images/exp1.png Graphic file (type png)
+ <use images/exp1.png>
+Package pdftex.def Info: images/exp1.png used on input line 28.
+(pdftex.def)             Requested size: 489.02365pt x 308.80157pt.
+
+[30 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/exp1.pn
+g>] <images/exp4.png, id=834, 350.05782pt x 222.8325pt>
+File: images/exp4.png Graphic file (type png)
+ <use images/exp4.png>
+Package pdftex.def Info: images/exp4.png used on input line 42.
+(pdftex.def)             Requested size: 490.07758pt x 311.96336pt.
+
+[31 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/exp4.pn
+g>] <images/uiv3.png, id=847, 185.19188pt x 450.18187pt>
+File: images/uiv3.png Graphic file (type png)
+ <use images/uiv3.png>
+Package pdftex.def Info: images/uiv3.png used on input line 59.
+(pdftex.def)             Requested size: 120.37328pt x 292.61475pt.
+
+<images/uiv1.png, id=848, 186.6975pt x 452.4403pt>
+File: images/uiv1.png Graphic file (type png)
+ <use images/uiv1.png>
+Package pdftex.def Info: images/uiv1.png used on input line 65.
+(pdftex.def)             Requested size: 121.35193pt x 294.08272pt.
+
+<images/uiv2.png, id=849, 187.45032pt x 448.67625pt>
+File: images/uiv2.png Graphic file (type png)
+ <use images/uiv2.png>
+Package pdftex.def Info: images/uiv2.png used on input line 71.
+(pdftex.def)             Requested size: 121.84125pt x 291.63611pt.
+
+Overfull \hbox (9.0229pt too wide) in paragraph at lines 71--72
+ [][] 
+ []
+
+
+Underfull \hbox (badness 1715) in paragraph at lines 72--72
+[]\OT1/ptm/m/n/10.95 Figure 6.6: [][]Version 2,
+ []
+
+<images/genfeed.png, id=851, 405.01312pt x 263.48438pt>
+File: images/genfeed.png Graphic file (type png)
+
+<use images/genfeed.png>
+Package pdftex.def Info: images/genfeed.png used on input line 82.
+(pdftex.def)             Requested size: 324.01093pt x 210.78777pt.
+ <images/q1.png, id=854, 408.02437pt x 263.48438pt>
+File: images/q1.png Graphic file (type png)
+
+<use images/q1.png>
+Package pdftex.def Info: images/q1.png used on input line 91.
+(pdftex.def)             Requested size: 244.81651pt x 158.09183pt.
+
+Overfull \hbox (4.45723pt too wide) in paragraph at lines 91--92
+[][] 
+ []
+
+<images/q2.png, id=855, 398.99063pt x 263.48438pt>
+File: images/q2.png Graphic file (type png)
+ <use images/q2.png>
+Package pdftex.def Info: images/q2.png used on input line 96.
+(pdftex.def)             Requested size: 239.39622pt x 158.09183pt.
+
+<images/q3.png, id=859, 410.2828pt x 271.76532pt>
+File: images/q3.png Graphic file (type png)
+ <use images/q3.png>
+Package pdftex.def Info: images/q3.png used on input line 106.
+(pdftex.def)             Requested size: 246.17157pt x 163.06044pt.
+
+Overfull \hbox (25.43742pt too wide) in paragraph at lines 106--107
+[][] 
+ []
+
+<images/q4.png, id=860, 413.29407pt x 269.50688pt>
+File: images/q4.png Graphic file (type png)
+ <use images/q4.png>
+Package pdftex.def Info: images/q4.png used on input line 111.
+(pdftex.def)             Requested size: 247.97835pt x 161.70537pt.
+
+Overfull \hbox (27.2442pt too wide) in paragraph at lines 111--112
+[][] 
+ []
+
+<images/q5.png, id=861, 395.97937pt x 271.0125pt>
+File: images/q5.png Graphic file (type png)
+ <use images/q5.png>
+Package pdftex.def Info: images/q5.png used on input line 116.
+(pdftex.def)             Requested size: 237.58945pt x 162.60875pt.
+
+Overfull \hbox (16.8553pt too wide) in paragraph at lines 116--117
+[][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/q6.png, id=864, 404.26031pt x 262.73157pt>
+File: images/q6.png Graphic file (type png)
+ <use images/q6.png>
+Package pdftex.def Info: images/q6.png used on input line 126.
+(pdftex.def)             Requested size: 242.55806pt x 157.64014pt.
+
+Overfull \hbox (2.19878pt too wide) in paragraph at lines 126--127
+[][] 
+ []
+
+<images/q7.png, id=865, 419.31656pt x 273.27094pt>
+File: images/q7.png Graphic file (type png)
+ <use images/q7.png>
+Package pdftex.def Info: images/q7.png used on input line 131.
+(pdftex.def)             Requested size: 251.59186pt x 163.9638pt.
+
+Overfull \hbox (6.33003pt too wide) in paragraph at lines 131--132
+[][] 
+ []
+
+[32 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/uiv3.pn
+g> <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/uiv1.png
+> <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/uiv2.png>
+]) [33 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/genf
+eed.png> <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/q1
+.png> <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/q2.pn
+g>] [34 <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/q3.
+png> <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/q4.png
+> <C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/q5.png> <
+C:/Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/q6.png> <C:/
+Users/QSilver/Desktop/UNI/Project/UnityBlob/Dissertation/images/q7.png>]
 Chapter 7.
-(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\conclusion.tex)
-(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\dissertation.bbl
-[13
+(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\conclusion.tex
+[35
 
-]
+])
+(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\dissertation.bbl
+[36]
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
@@ -309,32 +775,52 @@ Missing character: There is no ú in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
+ [37
+
+]
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no î in font ptmr7t!
-) (C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\appendix.tex) [1
-4
+)
+(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\appendix.tex
+[38]
+Appendix A.
+[39
 
 ]
-(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\dissertation.aux) 
-) 
+Appendix B.
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 111.
+ [40
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 111.
+
+(C:\Users\QSilver\Desktop\UNI\Project\UnityBlob\Dissertation\dissertation.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 111.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 111.
+Package rerunfilecheck Info: File `dissertation.out' has not changed.
+(rerunfilecheck)             Checksum: 3EDD49B19AB5EA2513EA1DE92A74B8A8;3733.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 111.
+ ) 
 Here is how much of TeX's memory you used:
- 2021 strings out of 493921
- 29756 string characters out of 3144869
- 86639 words of memory out of 3000000
- 5270 multiletter control sequences out of 15000+200000
- 24975 words of font info for 50 fonts, out of 3000000 for 9000
+ 8219 strings out of 493921
+ 122441 string characters out of 3144869
+ 263107 words of memory out of 3000000
+ 10959 multiletter control sequences out of 15000+200000
+ 28538 words of font info for 65 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 34i,7n,23p,956b,250s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program
- Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program F
-iles (x86)/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x86
-)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.
-9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
-e1/urw/times/utmri8a.pfb>
-Output written on dissertation.pdf (16 pages, 790118 bytes).
+ 34i,11n,40p,1230b,1708s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Progr
+am Files (x86)/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files 
+(x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
+/type1/urw/times/utmri8a.pfb>
+Output written on dissertation.pdf (42 pages, 6543400 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1045 PDF objects out of 1200 (max. 8388607)
+ 399 named destinations out of 1000 (max. 500000)
+ 651 words of extra memory for PDF output out of 10000 (max. 10000000)
 

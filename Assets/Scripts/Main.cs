@@ -11,19 +11,28 @@ public class Main : MonoBehaviour
 
     public static float timestamp = 0f;
 
-    public static int gameState = 0;
+    public enum GameState
+    {
+        Started,
+        Paused
+    }; 
+    public static GameState gameState = GameState.Paused;
+
+    public static int graphPoints = 200;
     public static float delay = 50f;
     public static float hostility = 0.1f;
     public static bool hasSound;
     public static float globaltimestamp = 0f;
 
-    int started = 0;
+    bool started = false;
     int linetick = 0, lineupdate = 30;
 
     public GameObject blob;
     public GameObject food;
     public GameObject gamearea;
     public InputField inputfield;
+
+    private const float bgScale = 0.049f; // needed to transform between floating point space to screen coordinates
 
     private static System.Random seedGen = new System.Random();
     private static int seed = seedGen.Next();
@@ -38,33 +47,24 @@ public class Main : MonoBehaviour
     void Start()
     {
         Application.runInBackground = true;
-        float bgScale = 0.049f;
         gamearea.transform.localScale = new Vector3(FoodManager.foodSpawnSize * bgScale, FoodManager.foodSpawnSize * bgScale, 1);
+        ResetLineGraph();
     }
-
-    /* void OnGUI()
-    {
-        Texture2D water = new Texture2D(1, 1);
-        water.SetPixel(0, 0, new Color(0, 128, 192, 255));
-        water.Apply();
-
-        GUI.Box(new Rect(-1 * FoodManager.foodSpawnSize / 2, -1 * FoodManager.foodSpawnSize / 2, FoodManager.foodSpawnSize, FoodManager.foodSpawnSize), GUIContent.none);
-    } */
 
     public void StartPressed()
     {
-        gameState = 1;
-        Update();
+        gameState = GameState.Started;
     }
 
     public void PausePressed()
     {
-        gameState = 0;
+        gameState = GameState.Paused;
     }
 
     public void ResetPressed()
     {
-        gameState = 0; started = 0;
+        gameState = GameState.Paused;
+        started = false;
         ResetLineGraph();
         BlobManager.blobs.Clear();
         FoodManager.foods.Clear();
@@ -82,9 +82,10 @@ public class Main : MonoBehaviour
         BlobManager.blobspeed = Main.delay;
         FoodManager.spawnspeed = Main.delay * FoodManager.foodSpawnRate;
 
-	    if (gameState == 1)
+	    if (gameState == GameState.Started)
         {
-            linetick++; if (linetick >= lineupdate)
+            linetick++;
+            if (linetick >= lineupdate)
             {
                 linetick = 0;
                 UpdateLineGraph();
@@ -93,9 +94,9 @@ public class Main : MonoBehaviour
             globaltimestamp += 1;
 
             timestamp += Time.deltaTime;
-            if (started == 0)
+            if (started == false)
             {
-                started = 1;
+                started = true;
                 if (BlobManager.blobs.Count == 0)
                 {
                     for (int i = 1; i <= 10; i++)
@@ -139,15 +140,15 @@ public class Main : MonoBehaviour
     public void ResetLineGraph()
     {
         population_data.pointValues.Clear();
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < graphPoints; i++)
             population_data.pointValues.Add(new Vector2(0, 0));
 
         population_reprod.pointValues.Clear();
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < graphPoints; i++)
             population_reprod.pointValues.Add(new Vector2(0, 0));
 
         population_patience.pointValues.Clear();
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < graphPoints; i++)
             population_patience.pointValues.Add(new Vector2(0, 0));
     }
 
@@ -244,7 +245,7 @@ public class Main : MonoBehaviour
             sb.Append(" \"angle\": \"" + blob.GetComponent<BlobLogic>().getAngle() + "\",");
             sb.Append(" \"dna\": \"" + blob.GetComponent<BlobDNA>().getDNA() + "\"},\n");
         }
-        if (sb.Length > 0)// && sb[sb.Length-3] == ',')
+        if (sb.Length > 0)
         {
             sb.Length -= 2;
             sb.Append("\n");
@@ -257,7 +258,7 @@ public class Main : MonoBehaviour
             sb.Append("\t\t{\"x\": \"" + f.transform.position.x + "\",");
             sb.Append(" \"y\": \"" + f.transform.position.y + "\"},\n");
         }
-        if (sb.Length > 0)// && sb[sb.Length - 1] == ',')
+        if (sb.Length > 0)
         {
             sb.Length -= 2;
             sb.Append("\n");

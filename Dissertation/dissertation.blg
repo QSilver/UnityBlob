@@ -1,13 +1,12 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: dissertation.aux
 The style file: plain.bst
 Database file #1: dissertation.bib
-"{" immediately follows a field name---line 62 of file dissertation.bib
- :  title-
- :        {On the Origin of Species by Means of Natural Selection, or the Preservation of Favoured Races in the Struggle for Life},
-I'm skipping whatever remains of this entry
+Warning--to sort, need author or key in mutationandselection
 Warning--to sort, need author or key in darwinbots
 Warning--to sort, need author or key in igblan
-Warning--empty title in darwinbook1859
+Warning--to sort, need author or key in unitywebsite
+Warning--to sort, need author or key in monoproject
+Warning--to sort, need author or key in graphmaker
 Warning--empty publisher in darwinbook1859
-Warning--empty year in darwinbook1859
-(There was 1 error message)
+Warning--empty journal in reenskaug1979original
+(There were 8 warnings)

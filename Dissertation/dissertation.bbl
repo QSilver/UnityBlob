@@ -1,15 +1,53 @@
 \begin{thebibliography}{10}
 
+\bibitem{graphmaker}
+Graph maker.
+\newblock \url{https://www.assetstore.unity3d.com/en/#!/content/11782}.
+
 \bibitem{igblan}
 Life universal computer.
 \newblock \url{http://www.igblan.free-online.co.uk/igblan/ca/index.html}.
+
+\bibitem{mutationandselection}
+Mutation and selection diagram.
+\newblock
+  \url{https://commons.wikimedia.org/wiki/File:Mutation_and_selection_diagram.svg}.
+
+\bibitem{monoproject}
+Project mono.
+\newblock \url{http://www.mono-project.com/}.
+
+\bibitem{unitywebsite}
+Unity game engine.
+\newblock \url{http://unity3d.com/unity}.
 
 \bibitem{darwinbots}
 Darwinbots.
 \newblock \url{http://wiki.darwinbots.com/w/Introduction}, 2005.
 
+\bibitem{an2009agent}
+Gary An, Qi~Mi, Joyeeta Dutta-Moscato, and Yoram Vodovotz.
+\newblock Agent-based models in translational systems biology.
+\newblock {\em Wiley Interdisciplinary Reviews: Systems Biology and Medicine},
+  1(2):159--171, 2009.
+
+\bibitem{brennan2009guide}
+Kevin Brennan et~al.
+\newblock {\em A Guide to the Business Analysis Body of Knowledger}.
+\newblock Iiba, 2009.
+
 \bibitem{darwinbook1859}
 Charles Darwin.
+\newblock {\em On the Origin of Species by Means of Natural Selection, or the
+  Preservation of Favoured Races in the Struggle for Life}.
+\newblock 1859.
+
+\bibitem{fraser1960simulation}
+Alex~S Fraser.
+\newblock Simulation of genetic systems by automatic digital computers vi.
+  epistasis.
+\newblock {\em Australian Journal of Biological Sciences}, 13(2):150--162,
+  1960.
 
 \bibitem{fumagalli2015speed}
 Maria~R Fumagalli, Matteo Osella, Philippe Thomen, Francois Heslot, and
@@ -29,11 +67,37 @@ David Griffeath.
 \newblock {\em New constructions in cellular automata}.
 \newblock Oxford University Press, 2003.
 
+\bibitem{hamilton1866elements}
+William~Rowan Hamilton.
+\newblock {\em Elements of quaternions}.
+\newblock Longmans, Green, \& Company, 1866.
+
+\bibitem{simonyork}
+Simon Hickinbotham.
+\newblock \url{https://www-users.cs.york.ac.uk/sjh/}.
+
+\bibitem{holland1975adaptation}
+John~H Holland.
+\newblock {\em Adaptation in natural and artificial systems: an introductory
+  analysis with applications to biology, control, and artificial intelligence.}
+\newblock U Michigan Press, 1975.
+
+\bibitem{jain1999horizontal}
+Ravi Jain, Maria~C Rivera, and James~A Lake.
+\newblock Horizontal gene transfer among genomes: the complexity hypothesis.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  96(7):3801--3806, 1999.
+
 \bibitem{lessin2013open}
 Dan Lessin, Don Fussell, and Risto Miikkulainen.
 \newblock Open-ended behavioral complexity for evolved virtual creatures.
 \newblock In {\em Proceedings of the 15th annual conference on Genetic and
   evolutionary computation}, pages 335--342. ACM, 2013.
+
+\bibitem{lewis2009factor}
+James~R Lewis and Jeff Sauro.
+\newblock The factor structure of the system usability scale.
+\newblock In {\em Human centered design}, pages 94--103. Springer, 2009.
 
 \bibitem{matthaus2009coli}
 Franziska Matth{\"a}us, Marko Jagodi{\v{c}}, and Jure Dobnikar.
@@ -51,13 +115,39 @@ Franziska Matth{\"a}us, Marko Jagodi{\v{c}}, and Jure Dobnikar.
 \bibitem{fieldguide}
 Riccardo Poli, William~B. Langdon, and Nicholas~Freitag McPhee.
 \newblock {\em A field guide to genetic programming}.
-\newblock Published via \texttt{http://lulu.com} and freely available at
+\newblock Published via \texttt{http://lulu.com} and available at
   \texttt{http://www.gp-field-guide.org.uk}, 2008.
+
+\bibitem{rappaport2005cytokinesis}
+Raymond Rappaport.
+\newblock {\em Cytokinesis in animal cells}, volume~32.
+\newblock Cambridge University Press, 2005.
+
+\bibitem{reenskaug1979original}
+Trygve Mikjel~H Reenskaug.
+\newblock The original mvc reports.
+\newblock 1979.
+
+\bibitem{robinson2014simulation}
+Stewart Robinson.
+\newblock {\em Simulation: the practice of model development and use}.
+\newblock Palgrave Macmillan, 2014.
 
 \bibitem{sims1994evolving}
 Karl Sims.
 \newblock Evolving virtual creatures.
 \newblock In {\em Proceedings of the 21st annual conference on Computer
   graphics and interactive techniques}, pages 15--22. ACM, 1994.
+
+\bibitem{turing1950computing}
+Alan~M Turing.
+\newblock Computing machinery and intelligence.
+\newblock {\em Mind}, 59(236):433--460, 1950.
+
+\bibitem{viswanathan1999optimizing}
+Gandimohan~M Viswanathan, Sergey~V Buldyrev, Shlomo Havlin, MGE Da~Luz,
+  EP~Raposo, and H~Eugene Stanley.
+\newblock Optimizing the success of random searches.
+\newblock {\em Nature}, 401(6756):911--914, 1999.
 
 \end{thebibliography}

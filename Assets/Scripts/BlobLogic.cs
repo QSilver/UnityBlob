@@ -18,17 +18,12 @@ public class BlobLogic : MonoBehaviour
     float t;
     float delay = BlobManager.blobspeed;
     float angle = 0f;
-    int foundFood = 0;
     int DNAaux;
-    int state = 0;
 
+    int colourfix = 50;
     int levytime = 120;
     int levythreshold = 1;
-    int shouldLevy = 0;
-    int isLevy = 0;
-    public int anglefix = 0;
-
-    //int isr = 0, isg = 0, isb = 0;
+    bool isLevy = false;
 
     List<float> ate = new List<float>();
 
@@ -36,38 +31,36 @@ public class BlobLogic : MonoBehaviour
     protected int blobID;
     public int showID;
 
-	// Use this for initialization
 	void Start ()
     {
+        // load Unity components
         rb = blob.GetComponent<Rigidbody>();
         audioSource = blob.GetComponent<AudioSource>();
 
-        DNAaux = 0;
+        DNAaux = 0; // current position in DNA string
+        // levytime = first DNALEVYTIME bits
         this.levytime = (System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(DNAaux, DNAOperations.DNALEVYTIME), 2));
         DNAaux += DNAOperations.DNALEVYTIME;
+        // toReproduce = next DNAREPROD bits
         this.toReproduce = ((float)System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(DNAaux, DNAOperations.DNAREPROD), 2)) + 100f;
         DNAaux += DNAOperations.DNAREPROD;
-        /*
-        this.isr = (System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(DNAaux, 1), 2));
-        DNAaux += 1;
-        this.isg = (System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(DNAaux, 1), 2));
-        DNAaux += 1;
-        this.isb = (System.Convert.ToInt32(blob.GetComponent<BlobDNA>().getDNA().Substring(DNAaux, 1), 2));
-        DNAaux += 1;
-         */
 
         this.blobID = ID++;
 
+        // switch audioclip
         audioSource.clip = drop;
-        if (Main.hasSound) audioSource.Play();
+        if (Main.hasSound)
+        {
+            audioSource.Play();
+        }
 
+        // make blob think it has eaten; otherwise it goes 
         for (int i = 0; i <= levythreshold; i++)
         {
             ate.Add(Main.globaltimestamp);
         }
 	}
 	
-	// Update is called once per frame
 	void Update ()
     {
 
@@ -77,13 +70,12 @@ public class BlobLogic : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
         rb.transform.position = new Vector3(rb.transform.position.x, rb.transform.position.y, 0);
 
-        this.GetComponentInChildren<SpriteRenderer>().color = new Color(0, 0, ((float)(levytime + 50)) / 256, 1);
+        this.GetComponentInChildren<SpriteRenderer>().color = new Color(0, 0, ((float)(levytime + colourfix)) / 255, 1);
 
         float blobsize = (this.energy + 50) / 150;
-        //this.GetComponent<SphereCollider>().radius = (float)(0.1 * blobsize);
         this.gameObject.transform.localScale = new Vector3(blobsize, blobsize, 1);
 
-        if (Main.gameState == 1)
+        if (Main.gameState == Main.GameState.Started)
         {
             delay = BlobManager.blobspeed;
             t += Time.deltaTime * 1000;
@@ -93,7 +85,7 @@ public class BlobLogic : MonoBehaviour
                 t = 0f;
                 energy -= Main.hostility;
             }
-            if (this.energy > toReproduce)// && BlobManager.blobs.Count < 1000)
+            if (this.energy > toReproduce)
             {
                 Reproduce();
             }
@@ -109,59 +101,29 @@ public class BlobLogic : MonoBehaviour
         
         #region Turn Back
         float turn = FoodManager.foodSpawnSize / 2;
-        if (rb.transform.position.x <= -turn || rb.transform.position.x >= turn || rb.transform.position.y <= -turn || rb.transform.position.y >= turn) anglefix = 1;
-        else anglefix = 0;
-
-        if (anglefix == 1) angle = angle - Mathf.PI - Mathf.PI * (float)(Main.random.NextDouble() - 0.5);
-        #endregion
-        
-        /*
-        #region Wrap-Around
-        float turn = FoodManager.foodSpawnSize / 2;
-        if (rb.transform.position.x <= -turn) rb.transform.position = new Vector3(turn-1, rb.transform.position.y);
-        if (rb.transform.position.x >= turn) rb.transform.position = new Vector3(-turn+1, rb.transform.position.y);
-        if (rb.transform.position.y <= -turn) rb.transform.position = new Vector3(rb.transform.position.x, turn-1);
-        if (rb.transform.position.y >= turn) rb.transform.position = new Vector3(rb.transform.position.x, -turn+1);
-        #endregion
-        */
-        LevyUpdate();
-
-        if (ate.Count < levythreshold) shouldLevy = 1;
-        else shouldLevy = 0;
-        if (foundFood == 1) shouldLevy = 0;
-
-        if (shouldLevy == 1)
+        if (rb.transform.position.x <= -turn || rb.transform.position.x >= turn || rb.transform.position.y <= -turn || rb.transform.position.y >= turn)
         {
-            if (isLevy == 0)
+            angle = angle - Mathf.PI - Mathf.PI * (float)(Main.random.NextDouble() - 0.5);
+        }
+        #endregion
+
+        LevyUpdate();
+        if (ate.Count < levythreshold)
+        {
+            if (isLevy == false) // is not already in Levy
             {
+                // pick random direction
                 angle = Random.Range(0, 361) * Mathf.PI / 180;
-                isLevy = 1;
+                isLevy = true;
             }
+            // move the direction set by "angle"
             rb.transform.position += new Vector3(speed * Mathf.Cos(angle) / 10, speed * Mathf.Sin(angle) / 10);
-            Find(float.MaxValue);
         }
         else
         {
-            isLevy = 0;
-            target = Find(float.MaxValue);
-            if (foundFood == 1)
-            {
-
-                if (target != null)
-                {
-                    shouldLevy = 0;
-                    angle = Mathf.Atan2((this.transform.position.y - target.transform.position.y), (this.transform.position.x - target.transform.position.x)) - Mathf.PI;
-                    rb.transform.position += new Vector3(speed * Mathf.Cos(angle) / 10, speed * Mathf.Sin(angle) / 10);
-                }
-                else
-                {
-                    foundFood = 0;
-                }
-            }
-            else
-            {
-                RandomMove();
-            }
+            // should not levy
+            isLevy = false;
+            RandomMove();
         }
     }
 
@@ -176,17 +138,8 @@ public class BlobLogic : MonoBehaviour
         }
     }
 
-    void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "Blob")
-        {
-            // this.energy -= 2; // fighting
-        }
-    }
-
     void OnMouseDown()
     {
-        //Log.PassString((this.blobID + " Clicked"));
         BlobDisplay.Load(this);
     }
 
@@ -200,29 +153,24 @@ public class BlobLogic : MonoBehaviour
 
     void RandomMove()
     {
-        this.state = 1;
         float angle = Random.Range(0, 361) * Mathf.PI / 180;
         rb.transform.position += new Vector3(speed * Mathf.Cos(angle) / 10, speed * Mathf.Sin(angle) / 10);
     }
 
     void Reproduce()
     {
-        this.state = 2;
-        GameObject child1 = GameObject.Instantiate(blob, blob.transform.position - new Vector3(0f, 0f), blob.transform.rotation) as GameObject;
+        GameObject child1 = GameObject.Instantiate(blob, blob.transform.position, blob.transform.rotation) as GameObject;
         child1.AddComponent<BlobDNA>();
         child1.GetComponent<BlobDNA>().setDNA(DNAOperations.mutate(blob.GetComponent<BlobDNA>().getDNA()));
         child1.GetComponent<BlobLogic>().energy = this.energy / 2;
         BlobManager.blobs.Add(child1);
 
-        GameObject child2 = GameObject.Instantiate(blob, blob.transform.position + new Vector3(0f, 0f), blob.transform.rotation) as GameObject;
+        GameObject child2 = GameObject.Instantiate(blob, blob.transform.position, blob.transform.rotation) as GameObject;
         child2.AddComponent<BlobDNA>();
         child2.GetComponent<BlobDNA>().setDNA(DNAOperations.mutate(blob.GetComponent<BlobDNA>().getDNA()));
         child2.GetComponent<BlobLogic>().energy = this.energy / 2;
         BlobManager.blobs.Add(child2);
 
-        //Log.PassString(("<" + blob.GetComponent<BlobDNA>().getDNA() + ">" + " Reproduced " + child1.GetComponent<BlobDNA>().getDNA() + " " + child2.GetComponent<BlobDNA>().getDNA()));
-
-        // duplicate to avoid logging death
         Destroy(blob.gameObject);
         BlobManager.blobs.Remove(blob.gameObject);
         Destroy(blob);
@@ -230,8 +178,6 @@ public class BlobLogic : MonoBehaviour
 
     void Starve()
     {
-        //Log.PassString(("<" + blob.GetComponent<BlobDNA>().getDNA() + ">" + " Died"));
-
         Destroy(this.gameObject);
         BlobManager.blobs.Remove(this.gameObject);
         Destroy(this);
@@ -239,28 +185,10 @@ public class BlobLogic : MonoBehaviour
 
     void LevyUpdate()
     {
+        // update blob "memory" list
         for (int i = 0; i < ate.Count; i++)
             if (ate[i] < Main.globaltimestamp - levytime)
                 ate.Remove(ate[i]);
-    }
-
-    GameObject Find(float min)
-    {
-        GameObject store = null;
-        foreach (GameObject food in FoodManager.foods)
-        {
-            float dist = Vector3.Distance(this.transform.position, food.transform.position);
-            if (dist < this.range)
-            {
-                if (dist < min)
-                {
-                    min = dist;
-                    foundFood = 1;
-                    store = food;
-                }
-            }
-        }
-        return store;
     }
 
     public float getEnergy()
@@ -276,11 +204,6 @@ public class BlobLogic : MonoBehaviour
     public float getRange()
     {
         return blob.GetComponent<BlobLogic>().range;
-    }
-
-    public int getState()
-    {
-        return this.state;
     }
 
     public float getReprod()

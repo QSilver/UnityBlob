@@ -1,4 +1,27 @@
 \section{Summary}
-\section{Project Management}
+
+The main goal of the project was to build an evolutionary simulator with the purpose of a teaching tool; to aid users in understanding the dynamics of an evolving population. Based on the feedback received, this was partially achieved, with the request to provide more information to the users.
+The web-based deployment allows for lightweight simulation, while the stand-alone system-specific versions offer more performance, together with the saving and loading features.
+
+\section{Project Management} \label{projmgmt}
+
+In order to provide a better approach, the project was split into four main sprints: Requirements, User Interface, Simulation, and Evaluation. The development method was Agile, with weekly iterations. During each supervisor meeting, implemented featured were marked as complete, and a new set of tasks was established for the following iteration. Incomplete features were, based on their importance, abandoned or postponed in favour of more critical ones.
+
+As the development environment was Agile, the importance of source control became paramount. Offering free access to its services, GitHub was deemed suitable for the project. The code can be found in a public repository at~\url{https://github.com/QSilver/UnityBlob}.
+
 \section{Future Work}
+
+Based on the feedback received, the most requested feature was a more in-depth data interface, providing additional information about environmental changes and parameters.
+
+Subsequent developments could include:
+\begin{itemize}
+	\item \textbf{Increased DNA complexity} \\ Blobs only encode two characteristics in their DNA: the reproduction threshold and the patience. Additional parameters would add vast complexity to the simulation.
+	\item \textbf{Sexual reproduction for blobs} \\ Currently the blobs only divide and mutate their own genome, sexual reproduction would allow for a better transfer of genes through crossover.
+	\item \textbf{Behavioural trees} \\ At the moment, blob behaviour is a parametrised static algorithm. Using crossover of decision trees, blobs could exchange behavioural patterns directly.
+	\item \textbf{External output} \\ Since the system can output its current state as a JSON file export, this could be imported by a number of external tools.
+	\item \textbf{Horizontal Gene Transfer~\cite{jain1999horizontal}} \\ Based on one of Dr. Simon Hickinbotham's suggestions, blobs could be able to pass on their genes without having to reproduce. Thus, beneficial genes could spread among the population at an increased rate, rapidly leading to more adaptive individuals. Horizontal Gene Transfer is believed to be a significant factor in bacterial drug resistance.
+\end{itemize}
+
 \section{Reflection}
+
+Implementing an evolutionary simulator proved a valuable learning experience. The task required the use of modern tools, such as the Unity Game Engine, paired with solid architectural patterns, such as the Model-View-Controller. Deployment demanded the use of state of the art cloud technology, for which Amazon Web Services were selected. In order to build the simulator, extensive research was required in the fields of evolutionary computing and bacterial cell biology.

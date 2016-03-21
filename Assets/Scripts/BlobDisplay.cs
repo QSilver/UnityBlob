@@ -9,7 +9,6 @@ public class BlobDisplay : MonoBehaviour
 
     static string display;
     static BlobLogic b;
-    //static int state;
 
     void Start()
     {
@@ -18,14 +17,14 @@ public class BlobDisplay : MonoBehaviour
 
     public static void Load(BlobLogic ext)
     {
-        b = ext;
-        //state = ext.getState();
+        b = ext; // load blob locally
     }
 
 	void Update ()
     {
         if (b != null)
         {
+            // make popup visible
             BlobPanel.GetComponent<CanvasGroup>().alpha = 1;
 
             display =  "BlobID: " + b.getID() + System.Environment.NewLine;
@@ -37,6 +36,7 @@ public class BlobDisplay : MonoBehaviour
         else
         {
             display = "";
+            // make popup invisible
             BlobPanel.GetComponent<CanvasGroup>().alpha = 0;
         }
         this.GetComponent<Text>().text = display;

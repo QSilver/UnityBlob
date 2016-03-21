@@ -10,7 +10,6 @@ namespace Assets.Scripts
         static float t = 0f;
         public static int maxFood = 500;
         public static float foodSpawnRate = 5f;
-        public static int foodSpawnAmount = 1;
         public static float foodSpawnDiameter = 1.5f;
         public static float foodEnergy = 30f;
         public static float spawnspeed = Main.delay * foodSpawnRate;
@@ -22,7 +21,6 @@ namespace Assets.Scripts
         public static void Cluster()
         {
             clusters.Clear();
-
             for (int i = 0; i < foodclusternum; i++)
             {
                 clusters.Add(new Cluster());
@@ -34,13 +32,16 @@ namespace Assets.Scripts
             t += Time.deltaTime * 1000;
             if (t > spawnspeed && foods.Count < maxFood)
             {
-                for (int i = 0; i < foodSpawnAmount; i++)
-                {
-                    int cluster = Main.random.Next(0,foodclusternum);
-                    GameObject clone = GameObject.Instantiate(food, new Vector3(clusters[cluster].getx() + (((float)Main.random.NextDouble() - 0.5f) * foodSpawnDiameter), clusters[cluster].gety() + (((float)Main.random.NextDouble() - 0.5f)) * foodSpawnDiameter), new Quaternion(0, 0, 0, 0)) as GameObject;
-                    foods.Add(clone);
-                    t = 0f;
-                }
+                // get random cluster
+                int cluster = Main.random.Next(0, foodclusternum);
+                // aquire X and Y of cluster
+                // add random to make it off centre
+                float xpos = clusters[cluster].getx() + (((float)Main.random.NextDouble() - 0.5f) * foodSpawnDiameter);
+                float ypos = clusters[cluster].gety() + (((float)Main.random.NextDouble() - 0.5f) * foodSpawnDiameter);
+                // create food pellet
+                GameObject clone = GameObject.Instantiate(food, new Vector3(xpos, ypos), new Quaternion(0, 0, 0, 0)) as GameObject;
+                foods.Add(clone);
+                t = 0f;
             }
 
             for (int i = 0; i < foodclusternum; i++)
